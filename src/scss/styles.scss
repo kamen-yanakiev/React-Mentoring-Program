@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  flex-flow: row wrap;
+
+  .navbar {
+    flex: 0 0 100%;
+    border: 1px solid black;
+  }
+
+  .sidebar {
+    flex: 0 0 40%;
+  }
+
+  .search-and-results {
+    margin-top: 1rem;
+    flex: 0 0 60%; 
+  }
+}
+
+
+
+
+
