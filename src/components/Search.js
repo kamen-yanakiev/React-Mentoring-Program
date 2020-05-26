@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import FindMovie from './FindMovie';
 
 class Search extends PureComponent {
   state = { results: [], searchText: '' };
@@ -17,6 +18,10 @@ class Search extends PureComponent {
     this.setState({ results: [ ...this.state.results, this.state.searchText ]})
   }
 
+  clearSearchResults = () => {
+    this.setState({ results: [] })
+  }
+
   render() {
     const searchResults = [];
 
@@ -28,12 +33,16 @@ class Search extends PureComponent {
 
     return (
       <div className='search-and-results'>
+        <FindMovie></FindMovie>
         <input type="text" 
-        name="searchbar" 
-        placeholder='Search...' 
+        name="searchbar"
+        className="search-movie-input"
+        placeholder="What do you want to watch?" 
         onChange={ this.onTextChange } 
         id=""/>
-        <button onClick={ this.onTextSave }>Search</button>
+        <button className="movie-search-btn" onClick={ this.onTextSave }>Search</button>
+        <button className="movie-clear-search-btn" onClick={ this.clearSearchResults }>Clear Search</button>
+        <div>Search results will display below:</div>
         <ul>
           { searchResults }
         </ul>

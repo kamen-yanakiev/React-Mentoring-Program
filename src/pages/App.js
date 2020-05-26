@@ -1,13 +1,13 @@
 import React from 'react';
-import Nav from './Nav';
+import Header from './Header';
 import Sidebar from './Sidebar';
-import Search from './Search';
+import MainContent from './MainContent'
 
 function App() {
   return (
     <div className="App">
-        <Nav/>
-        <Search></Search>
+        <Header/>
+        <MainContent></MainContent>
         <Sidebar></Sidebar>
     </div>
   );

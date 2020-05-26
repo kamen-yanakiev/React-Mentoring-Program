@@ -5,7 +5,7 @@ class Sidebar extends React.Component {
     const list = [];
 
     for (let i = 1; i <= 5; i++) {
-      list.push(<li>Sidebar { i }</li>);
+      list.push(<li key={`sidebar-${i}`}>Sidebar { i }</li>);
     }
 
     return (
