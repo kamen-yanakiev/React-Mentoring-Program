@@ -44,6 +44,7 @@ body {
       border: none;
       color: $primary-color-red;
       margin-right: 2rem;
+      cursor: pointer;
     }
 
     .find-movie {
@@ -63,6 +64,7 @@ body {
         background: $primary-color-red;
         color: white;
         border: none;
+        cursor: pointer;
       }
     }
   }
