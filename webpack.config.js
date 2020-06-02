@@ -16,5 +16,8 @@ module.exports = {
         options: {
             rootMode: "upward",
         }
-    }]
+    }],
+    resolve: {
+        extensions: ['*', '.js', '.jsx']
+    }
 };
