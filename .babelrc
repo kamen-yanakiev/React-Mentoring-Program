@@ -5,8 +5,5 @@
   ],
   "plugins": [
     "@babel/plugin-transform-modules-commonjs"
-  ],
-  "env": {
-    "production": {}
-  }
+  ]
 }
