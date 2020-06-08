@@ -14,8 +14,8 @@ Per the task 2 requirements.
 
   Commands:
   npm start
-  npm build-dev
-  npm build-prod
-  npm test
+  npm run build-dev
+  npm run build-prod
+  npm run test
 
 -----
