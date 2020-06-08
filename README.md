@@ -12,4 +12,10 @@ Per the task 2 requirements.
   3. Configured Babel. Configured tests script -> webpack.config.js
   4. Have DEV and PROD build commands (use env variables) -> package.json
 
+  Commands:
+  npm start
+  npm build-dev
+  npm build-prod
+  npm test
+
 -----
