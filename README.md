@@ -6,11 +6,10 @@ Run App:
 
 -----
 
-Per the task 1 requirements, components were created in the required ways.
-  1. React.CreateElement -> FindMovie.js
-  2. React.Component -> Sidebar.js
-  3. React Class component -> Sidebar.js
-  4. React.PureComponent -> Search.js
-  5. Functional component -> Header.js
+Per the task 3 requirements:
+  1. Markup in Header.jsx with component and fragment.
+  2. Added placeholder styles.
+  3. PropTypes used in Search.jsx to display placeholder text.
+  4. Added ErrorBoundary
 
 -----
