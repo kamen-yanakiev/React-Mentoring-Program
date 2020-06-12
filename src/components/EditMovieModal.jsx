@@ -23,23 +23,23 @@ function EditModal() {
             <label htmlFor="movie-id">Movie ID</label>
             <div name="movie-id">ID Here</div>
 
-            <label htmlFor="movie-name">Title</label>
-            <input type="text" name="movie-name" id=""/>
+            <label htmlFor="movie-title">Title</label>
+            <input type="text" name="movie-title" id=""/>
 
-            <label htmlFor="movie-name">Release Date</label>
-            <input type="text" name="movie-name" id="" />
+            <label htmlFor="release-date">Release Date</label>
+            <input type="text" name="release-date" id="" />
 
-            <label htmlFor="movie-name">Movie URL</label>
-            <input type="text" name="movie-name" id="" />
+            <label htmlFor="movie-url">Movie URL</label>
+            <input type="text" name="movie-url" id="" />
 
-            <label htmlFor="movie-name">Genre</label>
-            <input type="text" name="movie-name" id="" />
+            <label htmlFor="movie-ganre">Genre</label>
+            <input type="text" name="movie-ganre" id="" />
 
-            <label htmlFor="movie-name">Overview</label>
-            <input type="text" name="movie-name" id="" />
+            <label htmlFor="movie-overview">Overview</label>
+            <input type="text" name="movie-overview" id="" />
 
-            <label htmlFor="movie-name">Runtime</label>
-            <input type="text" name="movie-name" id="" />
+            <label htmlFor="movie-runtime">Runtime</label>
+            <input type="text" name="movie-runtime" id="" />
 
           </form>
         </Modal.Body>

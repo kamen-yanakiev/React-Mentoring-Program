@@ -23,20 +23,20 @@ function AddMovieBtn () {
             <label htmlFor="movie-name">Title</label>
             <input type="text" name="movie-name" id=""/>
 
-            <label htmlFor="movie-name">Release Date</label>
-            <input type="text" name="movie-name" id=""/>
+            <label htmlFor="movie-title">Release Date</label>
+            <input type="text" name="movie-title" id=""/>
 
-            <label htmlFor="movie-name">Movie URL</label>
-            <input type="text" name="movie-name" id=""/>
+            <label htmlFor="release-date">Movie URL</label>
+            <input type="text" name="release-date" id=""/>
 
-            <label htmlFor="movie-name">Genre</label>
-            <input type="text" name="movie-name" id=""/>
+            <label htmlFor="movie-url">Genre</label>
+            <input type="text" name="movie-url" id=""/>
 
-            <label htmlFor="movie-name">Overview</label>
-            <input type="text" name="movie-name" id=""/>
+            <label htmlFor="movie-ganre">Overview</label>
+            <input type="text" name="movie-ganre" id=""/>
 
-            <label htmlFor="movie-name">Runtime</label>
-            <input type="text" name="movie-name" id=""/>
+            <label htmlFor="movie-runtime">Runtime</label>
+            <input type="text" name="movie-runtime" id=""/>
 
           </form>
         </Modal.Body>
