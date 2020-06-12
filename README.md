@@ -7,10 +7,9 @@ Run App:
 -----
 
 Per the task 1 requirements, components were created in the required ways.
-  1. React.CreateElement -> FindMovie.js
-  2. React.Component -> Sidebar.js
-  3. React Class component -> Sidebar.js
-  4. React.PureComponent -> Search.js
-  5. Functional component -> Header.js
+  1. Add movie -> Header -> AddMovieModal
+  2. Sort -> MainContentTop
+  3. Edit movie -> MoviePlaceholder -> EditMovieModal
+  4. Delete movie -> MoviePlaceholder -> DeleteMovieModal
 
 -----

@@ -1,25 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import './variables';
 
-html {
+.App {
+  height: 100vh;
   font-family: 'PT Sans', sans-serif;
   background: $primary-background;
-}
 
-body {
-  font-family:inherit;
-}
-
-*,:before,:after {
-  font-family:inherit;
-}
-
-.App {
-  display: flex;
-  flex-flow: row wrap;
+  body {
+    font-family:inherit;
+  }
+  
+  *,:before,:after {
+    font-family:inherit;
+  }
 
   .header {
-    margin-top: 1rem;
+    padding-top: 1rem;
     display: flex;
     flex-flow: row wrap;
     flex: 0 0 100%;
@@ -77,4 +73,104 @@ body {
     flex: 0 0 20%;
   }
 
+}
+
+.main-content-top {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 2rem 0;
+  .main-content-list {
+    display: flex;
+    margin: 0;
+    li {
+      margin-right: .7rem;
+      list-style: none;
+      cursor: pointer;
+      color: white;
+      text-transform: uppercase;
+    }
+  }
+  .main-content-sort-span {
+    margin-right: 2rem;
+    text-transform: uppercase;
+    span {
+      margin-right: .5rem;
+    }
+    select {
+      text-transform: uppercase;
+    }
+    option {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.movie-placeholder {
+  margin-left: 2rem;
+  height: 19rem;
+  width: 15rem;
+  background: $primary-transparent-background;
+}
+
+.edit-btn, .delete-btn {
+  width: 100%;
+  margin-top: .5rem;
+  background-color: $primary-background;
+  border: 1px solid $primary-color-red;
+  color: $primary-color-red;
+  text-transform: uppercase;
+}
+
+.btn-primary:focus {
+  background-color: $primary-background;
+  border: 1px solid $primary-color-red;
+  color: $primary-color-red;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background-color: $primary-background !important;
+  border: 1px solid $primary-color-red !important;
+  color: $primary-color-red !important;
+}
+
+.btn-primary:hover {
+  background-color: $primary-color-red;
+  border: none;
+  color: $primary-background;
+}
+
+.add-movie-modal, .edit-movie-modal, .delete-movie-modal {
+  div {
+    .close  {
+      color: white;
+    }
+    color: white;
+    background-color: $popup-background;
+  }
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-body {
+    form {
+      label {
+        width: 100%;
+        text-transform: uppercase;
+        color: $primary-color-red;
+        margin-bottom: 0;
+        margin-top: .7rem;
+      }
+      input {
+        width: 100%;
+        border-radius: .3rem;
+        border: none;
+        background-color: $primary-transparent-background;
+      }
+    }
+  }
+  .modal-footer {
+    border-top: none;
+  }
 }
