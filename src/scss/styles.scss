@@ -15,11 +15,12 @@
   }
 
   .header {
-    padding-top: 1rem;
+    padding: 2rem 0;
     display: flex;
     flex-flow: row wrap;
     flex: 0 0 100%;
     justify-content: space-between;
+    background: $primary-transparent-background;
 
     .header-text {
       flex: 0 0 50%;
@@ -44,6 +45,7 @@
     }
 
     .find-movie {
+      font-family: 'PT Sans', sans-serif;
       flex: 0 0 100%;
       color: white;
     }
@@ -52,15 +54,22 @@
       margin-top: 1rem;
       flex: 0 0 100%;
       padding: 0 10rem 0 10rem;
+      display: flex;
+      flex-flow: row wrap;
       .search-movie-input {
-        width: 15%;
+        flex: 0 0 60%;
+        height: 3rem;
+        border: 1px solid $primary-transparent-background;
+        border-radius: .3rem;
       }
-      .movie-search-btn, .movie-clear-search-btn {
+      .movie-search-btn {
         margin-left: .5rem;
+        flex: 0 0 20%;
         background: $primary-color-red;
         color: white;
         border: none;
         cursor: pointer;
+        border-radius: .3rem;
       }
     }
   }
@@ -107,7 +116,7 @@
   }
 }
 
-.movie-placeholder {
+.movie-item {
   margin-left: 2rem;
   height: 19rem;
   width: 15rem;
@@ -173,4 +182,10 @@
   .modal-footer {
     border-top: none;
   }
+}
+
+.main-content-grid {
+  display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
 }

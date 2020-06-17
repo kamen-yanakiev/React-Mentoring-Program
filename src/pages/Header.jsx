@@ -1,13 +1,36 @@
-import React from 'react';
-import AddMovieModal from '../components/AddMovieModal';
+import React, { useState, useContext, useCallback } from "react";
+import MainHeader from "../components/header/MainHeader";
+import PropTypes from 'prop-types';
+import MoviesContext from "../context/movies/moviesContext";
 
-function Header () {
+
+const Header = () => {
+  const moviesContext = useContext(MoviesContext);
+
+  const { loading } = moviesContext;
+
+
+  // if (movie) {
+  //   console.log(movie);
+    
+  // }
+
   return (
-    <div className='header'>
-      <div className='header-text'><span className='netflix-span'>netflix</span>roulette</div>
-      <AddMovieModal/>
+    <div>
+      {!loading ? (
+        <div>Show Movie</div>
+      ) : (
+        <div>
+          <MainHeader />
+        </div>
+      )}
+      {/* <button onClick={() => switchHeader(!showMovie)}>Click</button> */}
     </div>
-  )
+  );
+};
+
+Header.propTypes = {
+  movie: PropTypes.object.isRequired
 }
 
 export default Header;
