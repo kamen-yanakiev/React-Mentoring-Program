@@ -5,13 +5,13 @@ import {
 
 export default (state, action) => {
 	switch (action.type) {
-		case SET_LOADING: 
+		case SET_LOADING:
 			return {
 				...state,
 				loading: true
 			};
 		case GET_MOVIE:
-			return{
+			return {
 				...state,
 				movie: action.payload,
 				loading: false

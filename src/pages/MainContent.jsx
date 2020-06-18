@@ -10,13 +10,13 @@ const MainContent = ({ openMovie }) => {
   return (
     <div>
       <MainContentTop></MainContentTop>
-      <Movies openMovie={movieToOpen}/>
+      <Movies passMovie={movieToOpen}/>
     </div>
   )
 }
 
 Movies.propTypes = {
-  openMovie: PropTypes.func.isRequired
+  passMovie: PropTypes.func.isRequired
 }
 
 export default MainContent;

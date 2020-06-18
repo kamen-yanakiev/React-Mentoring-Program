@@ -1,35 +1,58 @@
-import React, { useState, useContext, useCallback } from "react";
+import React, { useEffect } from "react";
 import MainHeader from "../components/header/MainHeader";
 import PropTypes from 'prop-types';
 import MoviesContext from "../context/movies/moviesContext";
+import useForceUpdate from 'use-force-update';
 
+const Header = (props) => {
+  // const moviesContext = useContext(MoviesContext);
 
-const Header = () => {
-  const moviesContext = useContext(MoviesContext);
+  const forceUpdate = useForceUpdate();
 
-  const { loading } = moviesContext;
+  let movieIsSelected = props.loading;
 
+  const closeHeader = () => {
+    props.movieToClose();
+    console.log(movieIsSelected);
+  }
 
-  // if (movie) {
-  //   console.log(movie);
-    
-  // }
+  // if (movieIsSelected) {
+  //   return (
+  //     <div>
+  //       <div>Show Movie</div>
+  //       <div onClick={closeHeader}>Close</div>
+  //     </div>
+  //   )
+  // } else {
+  //   return (
+  //     <div>
+  //       <MainHeader />
+  //     </div>
+  //   )
+  // };
+  useEffect(() => {
+    forceUpdate();
+    return () => console.log('unmounting...');
+  }, [ forceUpdate]);
 
   return (
     <div>
-      {!loading ? (
-        <div>Show Movie</div>
+      {movieIsSelected ? (
+        <div key={props.id}>
+          <div>Show Movie</div>
+          <div onClick={closeHeader}>Close</div>
+        </div>
       ) : (
         <div>
           <MainHeader />
         </div>
       )}
-      {/* <button onClick={() => switchHeader(!showMovie)}>Click</button> */}
     </div>
   );
 };
 
 Header.propTypes = {
+  movieToClose: PropTypes.func.isRequired,
   movie: PropTypes.object.isRequired
 }
 
