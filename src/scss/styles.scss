@@ -14,7 +14,7 @@
     font-family:inherit;
   }
 
-  .header {
+  .header, .movie-header {
     padding: 2rem 0;
     display: flex;
     flex-flow: row wrap;
@@ -73,6 +73,48 @@
       }
     }
   }
+
+  .movie-header {
+    .header-text {
+      flex: 0 0 8%;
+      display: flex;
+    }
+    .close-btn {
+      flex: 0 0 10%;
+      color: $primary-color-red;
+    }
+
+    .movie-header-content {
+      margin-top: 1rem;
+      margin-left: 2rem;
+      width: 90%;
+      display: flex;
+
+      .movie-poster {
+        flex: 0 0 15%;
+        background-color: $primary-transparent-background;
+        height: 270px;
+      }
+
+      .movie-details {
+        flex: 0 0 60%;
+        margin-left: 2rem;
+        color: white;
+        .movie-title {
+          font-size: 2rem;
+        }
+
+        .movie-year-and-duration {
+          color: $primary-color-red;
+          font-size: 24px;
+          span {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
   .main-conent {
     flex: 0 0 80%;
     background: $primary-transparent-background;
@@ -141,14 +183,7 @@
 
 .btn-primary:hover {
   background-color: $primary-background !important;
-  border: 1px solid $primary-color-red !important;
   color: $primary-color-red !important;
-}
-
-.btn-primary:hover {
-  background-color: $primary-color-red;
-  border: none;
-  color: $primary-background;
 }
 
 .add-movie-modal, .edit-movie-modal, .delete-movie-modal {
@@ -187,5 +222,5 @@
 .main-content-grid {
   display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 1rem;
+	gap: 1rem;
 }

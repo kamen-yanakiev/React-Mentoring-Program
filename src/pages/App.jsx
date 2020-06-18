@@ -2,31 +2,28 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import MainContent from "./MainContent";
 import MoviesState from "../context/movies/MoviesState";
-import useForceUpdate from 'use-force-update';
 
 const App = () => {
-  // const movie = {};
   const [loading, clickHandler] = useState(false);
 
-  const forceUpdate = useForceUpdate();
+  const [movieToShow, showMovieData] = useState({});
 
-  let movieToShow = {};
 
   const movieToOpen = (name, id) => {
-    clickHandler({ loading: true });
-    movieToShow = { name, id };
+    clickHandler(true);
     console.log(name);
+    
+    showMovieData({name, id});
   }
 
   const closeMovie = () => {
-    clickHandler({ loading: false });
-    forceUpdate();
+    clickHandler(false);
+    showMovieData({});
   }
 
   useEffect(() => {
-    console.log('render!', loading);
-    return () => console.log('unmounting...', loading);
-  }, [loading]);
+    console.log(movieToShow);
+  }, [movieToShow]);
 
   return (
     <MoviesState>

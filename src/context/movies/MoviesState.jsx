@@ -1,4 +1,4 @@
-import React, { useReducer, useContext, useState } from 'react';
+import React, { useReducer } from 'react';
 import MoviesContext from './moviesContext';
 import MoviesReducer from './moviesReducer';
 import {

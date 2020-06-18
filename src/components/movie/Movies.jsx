@@ -2,7 +2,7 @@ import React from 'react';
 import MovieItem from './MovieItem';
 import PropTypes from 'prop-types';
 
-const movies = [{ name: 'Movie 1', id: 'movie-1' }, { name: 'Movie 2', id: 'movie-2' }, { name: 'Movie 3', id: 'movie-3' }];
+const movies = [{ name: 'Movie 1', id: '1' }, { name: 'Movie 2', id: '2' }, { name: 'Movie 3', id: '3' }];
 
 
 const Movies = ({ passMovie }) => {
