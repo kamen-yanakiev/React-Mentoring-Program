@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Header from "./Header";
 import MainContent from "./MainContent";
-import MoviesState from "../context/movies/MoviesState";
 
 const App = () => {
   const [loading, clickHandler] = useState(false);
@@ -11,9 +10,9 @@ const App = () => {
 
   const movieToOpen = (name, id) => {
     clickHandler(true);
-    console.log(name);
-    
-    showMovieData({name, id});
+    // console.log(name);
+    memoizedCallback(name, id);
+    showMovieData({ name, id });
   }
 
   const closeMovie = () => {
@@ -21,17 +20,24 @@ const App = () => {
     showMovieData({});
   }
 
+  const memoizedCallback = useCallback (
+    (name, id) => {
+      console.log(`Inside useCallback -> ${name} --- ${id}`);
+    },
+    []
+  );
+
   useEffect(() => {
-    console.log(movieToShow);
+    if (movieToShow.name) {
+      console.log(`Inside useEffect -> ${movieToShow.name}`);
+    }
   }, [movieToShow]);
 
   return (
-    <MoviesState>
-      <div className="App">
-        <Header loading={loading} movieToClose={closeMovie} movie={movieToShow} />
-        <MainContent openMovie={movieToOpen} />
-      </div>
-    </MoviesState>
+    <div className="App">
+      <Header loading={loading} movieToClose={closeMovie} movie={movieToShow} />
+      <MainContent openMovie={movieToOpen} />
+    </div>
   );
 };
 
