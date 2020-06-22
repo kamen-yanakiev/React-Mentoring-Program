@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './scss/styles.scss'
-import Header from './Header';
+import App from './pages/App';
+import './scss/app.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

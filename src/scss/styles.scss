@@ -1,29 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import './variables';
 
-html {
+.App {
+  height: 100vh;
   font-family: 'PT Sans', sans-serif;
   background: $primary-background;
-}
 
-body {
-  font-family:inherit;
-}
+  body {
+    font-family:inherit;
+  }
+  
+  *,:before,:after {
+    font-family:inherit;
+  }
 
-*,:before,:after {
-  font-family:inherit;
-}
-
-.App {
-  display: flex;
-  flex-flow: row wrap;
-
-  .header {
-    margin-top: 1rem;
+  .header, .movie-header {
+    padding: 2rem 0;
     display: flex;
     flex-flow: row wrap;
     flex: 0 0 100%;
     justify-content: space-between;
+    background: $primary-transparent-background;
 
     .header-text {
       flex: 0 0 50%;
@@ -48,6 +45,7 @@ body {
     }
 
     .find-movie {
+      font-family: 'PT Sans', sans-serif;
       flex: 0 0 100%;
       color: white;
     }
@@ -56,18 +54,67 @@ body {
       margin-top: 1rem;
       flex: 0 0 100%;
       padding: 0 10rem 0 10rem;
+      display: flex;
+      flex-flow: row wrap;
       .search-movie-input {
-        width: 15%;
+        flex: 0 0 60%;
+        height: 3rem;
+        border: 1px solid $primary-transparent-background;
+        border-radius: .3rem;
       }
-      .movie-search-btn, .movie-clear-search-btn {
+      .movie-search-btn {
         margin-left: .5rem;
+        flex: 0 0 20%;
         background: $primary-color-red;
         color: white;
         border: none;
         cursor: pointer;
+        border-radius: .3rem;
       }
     }
   }
+
+  .movie-header {
+    .header-text {
+      flex: 0 0 8%;
+      display: flex;
+    }
+    .close-btn {
+      flex: 0 0 10%;
+      color: $primary-color-red;
+    }
+
+    .movie-header-content {
+      margin-top: 1rem;
+      margin-left: 2rem;
+      width: 90%;
+      display: flex;
+
+      .movie-poster {
+        flex: 0 0 15%;
+        background-color: $primary-transparent-background;
+        height: 270px;
+      }
+
+      .movie-details {
+        flex: 0 0 60%;
+        margin-left: 2rem;
+        color: white;
+        .movie-title {
+          font-size: 2rem;
+        }
+
+        .movie-year-and-duration {
+          color: $primary-color-red;
+          font-size: 24px;
+          span {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
   .main-conent {
     flex: 0 0 80%;
     background: $primary-transparent-background;
@@ -77,4 +124,103 @@ body {
     flex: 0 0 20%;
   }
 
+}
+
+.main-content-top {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 2rem 0;
+  .main-content-list {
+    display: flex;
+    margin: 0;
+    li {
+      margin-right: .7rem;
+      list-style: none;
+      cursor: pointer;
+      color: white;
+      text-transform: uppercase;
+    }
+  }
+  .main-content-sort-span {
+    margin-right: 2rem;
+    text-transform: uppercase;
+    span {
+      margin-right: .5rem;
+    }
+    select {
+      text-transform: uppercase;
+    }
+    option {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.movie-item {
+  margin-left: 2rem;
+  height: 19rem;
+  width: 15rem;
+  background: $primary-transparent-background;
+}
+
+.edit-btn, .delete-btn {
+  width: 100%;
+  margin-top: .5rem;
+  background-color: $primary-background;
+  border: 1px solid $primary-color-red;
+  color: $primary-color-red;
+  text-transform: uppercase;
+}
+
+.btn-primary:focus {
+  background-color: $primary-background;
+  border: 1px solid $primary-color-red;
+  color: $primary-color-red;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background-color: $primary-background !important;
+  color: $primary-color-red !important;
+}
+
+.add-movie-modal, .edit-movie-modal, .delete-movie-modal {
+  div {
+    .close  {
+      color: white;
+    }
+    color: white;
+    background-color: $popup-background;
+  }
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-body {
+    form {
+      label {
+        width: 100%;
+        text-transform: uppercase;
+        color: $primary-color-red;
+        margin-bottom: 0;
+        margin-top: .7rem;
+      }
+      input {
+        width: 100%;
+        border-radius: .3rem;
+        border: none;
+        background-color: $primary-transparent-background;
+      }
+    }
+  }
+  .modal-footer {
+    border-top: none;
+  }
+}
+
+.main-content-grid {
+  display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
 }
