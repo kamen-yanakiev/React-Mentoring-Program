@@ -1,10 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-function MainContentTop () {
+function MainContentTop() {
+
+  const throwError = () => {
+    debugger;
+    throw new Error();
+  }
+
   return (
     <div className='main-content-top'>
       <ul className='main-content-list'>
-        <li>All</li>
+        <li onClick={throwError}>All</li>
         <li>Documentary</li>
         <li>Comedy</li>
         <li>Horror</li>

@@ -1,16 +1,14 @@
 import React, { Fragment } from 'react';
 import Search from './Search';
-import ErrorBoundary from './ErrorBoundary'
 
-function Header () {
+
+function Header() {
   return (
-    <ErrorBoundary>
-      <Fragment>
-        <div className='header'>
-          <Search placeholderText={'Search Placeholder'}></Search>
-        </div>
-      </Fragment>
-    </ErrorBoundary>
+    <Fragment>
+      <div className='header'>
+        <Search placeholderText={'Search Placeholder'}></Search>
+      </div>
+    </Fragment>
   )
 }
 

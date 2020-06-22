@@ -2,6 +2,7 @@ import React from 'react';
 import MainContentTop from '../components/main/MainContentTop';
 import Movies from '../components/movie/Movies';
 import PropTypes from 'prop-types';
+import ErrorBoudary from '../ErrorBoundary';
 
 const MainContent = ({ openMovie }) => {
   const movieToOpen = (name, id) => {
@@ -10,7 +11,9 @@ const MainContent = ({ openMovie }) => {
   return (
     <div>
       <MainContentTop></MainContentTop>
-      <Movies passMovie={movieToOpen}/>
+      <ErrorBoudary>
+        <Movies passMovie={movieToOpen} />
+      </ErrorBoudary>
     </div>
   )
 }

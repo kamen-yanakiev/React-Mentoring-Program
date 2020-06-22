@@ -5,12 +5,12 @@ import DeleteMovieModal from '../main/DeleteMovieModal';
 
 const MovieItem = ({ name, id, openMovie }) => {
 
-  const changeHeader = () => {
-    openMovie(name, id);
-  }
+  // const changeHeader = () => {
+  //   openMovie(name, id);
+  // }
 
   return (
-    <div className='movie-item' onClick={changeHeader}>
+    <div className='movie-item'>
       <div>{name}</div>
       <EditMovieModal />
       <DeleteMovieModal />
