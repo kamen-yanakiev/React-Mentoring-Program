@@ -2,25 +2,23 @@ import React from 'react';
 import MovieItem from './MovieItem';
 import PropTypes from 'prop-types';
 
-const movies = [{ name: 'Movie 1', id: '1' }, { name: 'Movie 2', id: '2' }, { name: 'Movie 3', id: '3' }];
-
-
-const Movies = ({ passMovie }) => {
-  const movieToOpen = (name, id) => {
-    passMovie(name, id);
+const Movies = ({ passMovie, movies }) => {
+  const movieToOpen = (id) => {
+    passMovie(id);
   }
 
   return (
     <div className='main-content-grid'>
       {movies.map(movie => (
-        <MovieItem key={movie.id} name={movie.name} id={movie.id} openMovie={movieToOpen} />
+        <MovieItem key={movie.id} id={movie.id} openMovie={movieToOpen} background={movie.poster_path} />
       ))}
     </div>
   )
 }
 
 Movies.propTypes = {
-  openMovie: PropTypes.func.isRequired
+  passMovie: PropTypes.func.isRequired,
+  movies: PropTypes.object.isRequired,
 }
 
 export default Movies;

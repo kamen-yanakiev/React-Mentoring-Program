@@ -8,11 +8,11 @@ const App = () => {
   const [movieToShow, showMovieData] = useState({});
 
 
-  const movieToOpen = (name, id) => {
+  const movieToOpen = (movie) => {
     clickHandler(true);
     // console.log(name);
-    memoizedCallback(name, id);
-    showMovieData({ name, id });
+    // memoizedCallback(name, id);
+    showMovieData(movie);
   }
 
   const closeMovie = () => {
@@ -20,22 +20,22 @@ const App = () => {
     showMovieData({});
   }
 
-  const memoizedCallback = useCallback (
-    (name, id) => {
-      console.log(`Inside useCallback -> ${name} --- ${id}`);
-    },
-    []
-  );
+  // const memoizedCallback = useCallback (
+  //   (name, id) => {
+  //     console.log(`Inside useCallback -> ${name} --- ${id}`);
+  //   },
+  //   []
+  // );
 
-  useEffect(() => {
-    if (movieToShow.name) {
-      console.log(`Inside useEffect -> ${movieToShow.name}`);
-    }
-  }, [movieToShow]);
+  // useEffect(() => {
+  //   if (movieToShow.name) {
+  //     console.log(`Inside useEffect -> ${movieToShow.name}`);
+  //   }
+  // }, [movieToShow]);
 
   return (
     <div className="App">
-      <Header loading={loading} movieToClose={closeMovie} movie={movieToShow} />
+      <Header loading={loading} passMovieToClose={closeMovie} movie={movieToShow} />
       <MainContent openMovie={movieToOpen} />
     </div>
   );
