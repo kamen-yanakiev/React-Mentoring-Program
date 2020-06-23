@@ -20,21 +20,21 @@ const App = () => {
     showMovieData({});
   }
 
-  // const memoizedCallback = useCallback (
-  //   (name, id) => {
-  //     console.log(`Inside useCallback -> ${name} --- ${id}`);
-  //   },
-  //   []
-  // );
+  const memoizedCallback = useCallback (
+    (name, id) => {
+      console.log(`Inside useCallback -> ${name} --- ${id}`);
+    },
+    []
+  );
 
-  // useEffect(() => {
-  //   if (movieToShow.name) {
-  //     console.log(`Inside useEffect -> ${movieToShow.name}`);
-  //   }
-  // }, [movieToShow]);
+  useEffect(() => {
+    if (movieToShow.name) {
+      console.log(`Inside useEffect -> ${movieToShow.name}`);
+    }
+  }, [movieToShow]);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header loading={loading} passMovieToClose={closeMovie} movie={movieToShow} />
       <MainContent openMovie={movieToOpen} />
     </div>

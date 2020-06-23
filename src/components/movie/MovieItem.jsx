@@ -12,6 +12,8 @@ const MovieItem = ({ id, background, openMovie }) => {
     openMovie(id);
   }
 
+
+
   return (
     <div className='movie-item'
       style={{
@@ -26,7 +28,7 @@ const MovieItem = ({ id, background, openMovie }) => {
         <Dropdown.Item as="button"><DeleteMovieModal /></Dropdown.Item>
       </DropdownButton>
       <div className='movie-item-click' onClick={changeHeader}></div>
-      
+
     </div>
   )
 }

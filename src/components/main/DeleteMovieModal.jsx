@@ -9,9 +9,9 @@ function EditModal () {
 
   return (
     <div className='edit-movie-btn'>
-      <Button className="delete-btn" variant="primary" onClick={handleShow}>
+      <div className="delete-btn" variant="primary" onClick={handleShow}>
         Delete
-      </Button>
+      </div>
 
       <Modal className="delete-movie-modal" show={show} onHide={handleClose}>
         <Modal.Header closeButton>

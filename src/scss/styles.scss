@@ -112,8 +112,8 @@
             font-size: 1.5rem;
             margin-left: .5rem;
             border: 2px solid white;
-            padding: 10px;
-            border-radius: 30px;
+            padding: 8px 15px 8px 15px;
+            border-radius: 50px;
           }
         }
 
@@ -174,9 +174,6 @@
 .edit-btn, .delete-btn {
   width: 100%;
   margin-top: .5rem;
-  background-color: $primary-background;
-  border: 1px solid $primary-color-red;
-  color: $primary-color-red;
   text-transform: uppercase;
 }
 
@@ -259,9 +256,13 @@
       background-color: $primary-transparent-background-dark;
       color: white;
     }
-    button:active {
+    button:not(.disabled):active {
       background-color: $primary-transparent-background-dark;
-      columns: $primary-color-red;
+      color: $primary-color-red;
+    }
+    .btn-primary {
+      background-color: $primary-transparent-background-dark;
+      color: white;
     }
     button:focus {
       box-shadow: none;
