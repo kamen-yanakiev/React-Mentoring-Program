@@ -151,7 +151,7 @@
     "vote_average": 7,
     "vote_count": 7502,
     "release_date": "2014-09-10",
-    "poster_path": "https://image.tmdb.org/t/p/w500/coss7RgL0NH6g4fC2s5atvf3dFO.jpg",
+    "poster_path": "https://m.media-amazon.com/images/M/MV5BMjUyNTA3MTAyM15BMl5BanBnXkFtZTgwOTEyMTkyMjE@._V1_.jpg",
     "overview": "Set in a post-apocalyptic world, young Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a maze that will require him to join forces with fellow “runners” for a shot at escape.",
     "budget": 34000000,
     "revenue": 348300000,
@@ -208,7 +208,7 @@
     "vote_average": 7.5,
     "vote_count": 14093,
     "release_date": "2012-04-25",
-    "poster_path": "https://image.tmdb.org/t/p/w500/cezWGskPY5x7GaglTTRN4Fugfb8.jpg",
+    "poster_path": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     "overview": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!",
     "budget": 220000000,
     "revenue": 1519557910,
@@ -226,7 +226,7 @@
     "vote_average": 7.9,
     "vote_count": 12376,
     "release_date": "2014-07-30",
-    "poster_path": "https://image.tmdb.org/t/p/w500/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg",
+    "poster_path": "https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SY1000_CR0,0,674,1000_AL_.jpg",
     "overview": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
     "budget": 170000000,
     "revenue": 773328629,
@@ -236,5 +236,147 @@
       "Adventure"
     ],
     "runtime": 121
+  },
+  {
+      "id": 335984,
+      "title": "Blade Runner 2049",
+      "tagline": "There's still a page left.",
+      "vote_average": 7.3,
+      "vote_count": 3955,
+      "release_date": "2017-10-04",
+      "poster_path": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+      "overview": "Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.",
+      "budget": 150000000,
+      "revenue": 259239658,
+      "genres": [
+          "Mystery",
+          "Science Fiction",
+          "Thriller"
+      ],
+      "runtime": 163
+  },
+  {
+      "id": 300668,
+      "title": "Annihilation",
+      "tagline": "Fear What's Inside.",
+      "vote_average": 6.4,
+      "vote_count": 1291,
+      "release_date": "2018-02-22",
+      "poster_path": "https://image.tmdb.org/t/p/w500/d3qcpfNwbAMCNqWDHzPQsUYiUgS.jpg",
+      "overview": "A biologist signs up for a dangerous, secret expedition into a mysterious zone where the laws of nature don't apply.",
+      "budget": 40000000,
+      "revenue": 13258603,
+      "genres": [
+          "Mystery",
+          "Science Fiction",
+          "Drama"
+      ],
+      "runtime": 115
+  },
+  {
+      "id": 353486,
+      "title": "Jumanji: Welcome to the Jungle",
+      "tagline": "The game has evolved.",
+      "vote_average": 6.5,
+      "vote_count": 3330,
+      "release_date": "2017-12-09",
+      "poster_path": "https://image.tmdb.org/t/p/w500/bXrZ5iHBEjH7WMidbUDQ0U2xbmr.jpg",
+      "overview": "The tables are turned as four teenagers are sucked into Jumanji's world - pitted against rhinos, black mambas and an endless variety of jungle traps and puzzles. To survive, they'll play as characters from the game.",
+      "budget": 90000000,
+      "revenue": 928901353,
+      "genres": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Family"
+      ],
+      "runtime": 119
+  },
+  {
+      "id": 131631,
+      "title": "The Hunger Games: Mockingjay - Part 1",
+      "tagline": "Fire burns brighter in the darkness",
+      "vote_average": 6.7,
+      "vote_count": 7308,
+      "release_date": "2014-11-18",
+      "poster_path": "https://m.media-amazon.com/images/M/MV5BMTcxNDI2NDAzNl5BMl5BanBnXkFtZTgwODM3MTc2MjE@._V1_SY1000_CR0,0,657,1000_AL_.jpg",
+      "overview": "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.",
+      "budget": 125000000,
+      "revenue": 752100229,
+      "genres": [
+          "Science Fiction",
+          "Adventure",
+          "Thriller"
+      ],
+      "runtime": 123
+  },
+  {
+      "id": 353616,
+      "title": "Pitch Perfect 3",
+      "tagline": "Last Call Pitches",
+      "vote_average": 6.4,
+      "vote_count": 727,
+      "release_date": "2017-12-21",
+      "poster_path": "https://image.tmdb.org/t/p/w500/fchHLsLjFvzAFSQykiMwdF1051.jpg",
+      "overview": "After the highs of winning the world championships, the Bellas find themselves split apart and discovering there aren't job prospects for making music with your mouth. But when they get the chance to reunite for an overseas USO tour, this group of awesome nerds will come together to make some music, and some questionable decisions, one last time.",
+      "budget": 45000000,
+      "revenue": 183600000,
+      "genres": [
+          "Comedy",
+          "Music"
+      ],
+      "runtime": 93
+  },
+  {
+      "id": 45054,
+      "title": "There Be Dragons",
+      "tagline": "",
+      "vote_average": 4.9,
+      "vote_count": 69,
+      "release_date": "2011-03-25",
+      "poster_path": "https://m.media-amazon.com/images/M/MV5BMjM3MTQ1Njk4M15BMl5BanBnXkFtZTcwNDQxOTQzNA@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+      "overview": "Arising out of the horror of the Spanish Civil War, a candidate for canonization is investigated by a journalist who discovers his own estranged father had a deep, dark and devastating connection to the saint's life.While researching the life of Josemaria Escriva, the controversial founder of Opus Dei, the young journalist Robert uncovers hidden stories of his estranged father Manolo, and is taken on a journey through the dark, terrible secrets of his family’s past.",
+      "budget": 0,
+      "revenue": 0,
+      "genres": [
+          "Drama"
+      ],
+      "runtime": 112
+  },
+  {
+      "id": 22,
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "tagline": "Prepare to be blown out of the water.",
+      "vote_average": 7.5,
+      "vote_count": 8914,
+      "release_date": "2003-07-09",
+      "poster_path": "https://m.media-amazon.com/images/M/MV5BNGYyZGM5MGMtYTY2Ni00M2Y1LWIzNjQtYWUzM2VlNGVhMDNhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+      "overview": "Jack Sparrow, a freewheeling 17th-century pirate, quarrels with a rival pirate bent on pillaging Port Royal. When the governor's daughter is kidnapped, Sparrow decides to help the girl's love save her.",
+      "budget": 140000000,
+      "revenue": 655011224,
+      "genres": [
+          "Adventure",
+          "Fantasy",
+          "Action"
+      ],
+      "runtime": 143
+  },
+  {
+      "id": 122917,
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "tagline": "Witness the defining chapter of the Middle-Earth saga",
+      "vote_average": 7.2,
+      "vote_count": 6067,
+      "release_date": "2014-12-10",
+      "poster_path": "https://m.media-amazon.com/images/M/MV5BODAzMDgxMDc1MF5BMl5BanBnXkFtZTgwMTI0OTAzMjE@._V1_SY1000_SX675_AL_.jpg",
+      "overview": "Immediately after the events of The Desolation of Smaug, Bilbo and the dwarves try to defend Erebor's mountain of treasure from others who claim it: the men of the ruined Laketown and the elves of Mirkwood. Meanwhile an army of Orcs led by Azog the Defiler is marching on Erebor, fueled by the rise of the dark lord Sauron. Dwarves, elves and men must unite, and the hope for Middle-Earth falls into Bilbo's hands.",
+      "budget": 250000000,
+      "revenue": 956019788,
+      "genres": [
+          "Action",
+          "Adventure",
+          "Fantasy"
+      ],
+      "runtime": 144
   }
 ]
