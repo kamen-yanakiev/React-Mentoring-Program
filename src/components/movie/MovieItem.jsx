@@ -12,8 +12,6 @@ const MovieItem = ({ id, background, openMovie }) => {
     openMovie(id);
   }
 
-
-
   return (
     <div className='movie-item'
       style={{

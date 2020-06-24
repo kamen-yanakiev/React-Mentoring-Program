@@ -8,17 +8,16 @@ const App = () => {
   const [movieToShow, showMovieData] = useState({});
 
   const movieToOpen = (movie) => {
-    memoizedCallback(movie.title, movie.id);
-    showMovieData(movie);
+    memoizedCallback(movie);
   };
 
-  const closeMovie = () => {
+  const useCloseMovie = () => {
     clickHandler(false);
     showMovieData({});
   };
 
-  const memoizedCallback = useCallback((name, id) => {
-    console.log(`Inside useCallback -> ${name} --- ${id}`);
+  const memoizedCallback = useCallback((movie) => {
+    showMovieData(movie);
   }, []);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const App = () => {
     <div className="App">
       <Header
         loading={loading}
-        passMovieToClose={closeMovie}
+        passMovieToClose={useCloseMovie}
         movie={movieToShow}
       />
       <p></p>
