@@ -3,3 +3,9 @@ React Mentoring Program App
 Run App: 
   1. npm install
   2. npm start
+
+---------------
+Lifecycle Methods -> MainHeader.jsx
+
+
+---------------

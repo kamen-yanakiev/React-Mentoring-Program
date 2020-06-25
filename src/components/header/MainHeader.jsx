@@ -1,7 +1,19 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import AddMovieModal from "./AddMovieModal";
 
-class MainHeader extends PureComponent {
+class MainHeader extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchPlaceholderText : '',
+      textVariants : ['What do you want to watch?', 'Search for your movie here', 'What would you like to watch?', 'Find a movie']}
+  }
+
+  componentDidMount() {
+    let index = Math.floor(Math.random() * 4);
+    this.setState({searchPlaceholderText: this.state.textVariants[index]});
+  }
+
   render() {
     return (
       <div className="header">
@@ -15,7 +27,7 @@ class MainHeader extends PureComponent {
             type="text"
             name="searchbar"
             className="search-movie-input"
-            placeholder="What do you want to watch?"
+            placeholder={this.state.searchPlaceholderText}
             id=""
           />
           <button className="movie-search-btn">
