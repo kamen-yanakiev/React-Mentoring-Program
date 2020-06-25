@@ -10,7 +10,7 @@ const Movies = ({ passMovie, movies }) => {
   return (
     <div className='main-content-flex'>
       {movies.map(movie => (
-        <MovieItem key={movie.id} id={movie.id} openMovie={movieToOpen} background={movie.poster_path} />
+        <MovieItem key={movie.id} movie={movie} openMovie={movieToOpen} />
       ))}
     </div>
   )

@@ -5,7 +5,8 @@ Run App:
   2. npm start
 
 ---------------
-Lifecycle Methods -> MainHeader.jsx
 
+Lifecycle methods -> MainHeader.jsx
+Custom hook -> App.jsx -> useCloseMovie
 
 ---------------

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Modal } from 'react-bootstrap';
 
-function EditModal() {
+function EditModal({movie}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const { id, title, release_date, poster_path, genres, overview, runtime } = movie;
 
   return (
     <div className='edit-movie-btn'>
@@ -21,25 +24,25 @@ function EditModal() {
           <form action="add-movie">
 
             <label htmlFor="movie-id">Movie ID</label>
-            <div name="movie-id">ID Here</div>
+            <div name="movie-id">{id}</div>
 
             <label htmlFor="movie-title">Title</label>
-            <input type="text" name="movie-title" id=""/>
+            <input type="text" name="movie-title" id="" placeholder={title}/>
 
             <label htmlFor="release-date">Release Date</label>
-            <input type="text" name="release-date" id="" />
+            <input type="text" name="release-date" id="" placeholder={release_date}/>
 
             <label htmlFor="movie-url">Movie URL</label>
-            <input type="text" name="movie-url" id="" />
+            <input type="text" name="movie-url" id="" placeholder={poster_path}/>
 
             <label htmlFor="movie-ganre">Genre</label>
-            <input type="text" name="movie-ganre" id="" />
+            <input type="text" name="movie-ganre" id="" placeholder={genres.join(', ')}/>
 
             <label htmlFor="movie-overview">Overview</label>
-            <input type="text" name="movie-overview" id="" />
+            <input type="text" name="movie-overview" id="" placeholder={overview}/>
 
             <label htmlFor="movie-runtime">Runtime</label>
-            <input type="text" name="movie-runtime" id="" />
+            <input type="text" name="movie-runtime" id="" placeholder={runtime}/>
 
           </form>
         </Modal.Body>
@@ -56,5 +59,10 @@ function EditModal() {
   )
 
 }
+
+EditModal.propTypes = {
+  movie: PropTypes.object.isRequired,
+}
+
 
 export default EditModal;

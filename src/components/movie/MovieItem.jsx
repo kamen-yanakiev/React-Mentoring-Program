@@ -6,7 +6,8 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
-const MovieItem = ({ id, background, openMovie }) => {
+const MovieItem = ({ movie, openMovie }) => {
+  const { id, poster_path } = movie;
 
   const changeHeader = () => {
     openMovie(id);
@@ -15,14 +16,14 @@ const MovieItem = ({ id, background, openMovie }) => {
   return (
     <div className='movie-item'
       style={{
-        backgroundImage: "url(" + background + ")",
+        backgroundImage: "url(" + poster_path + ")",
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}>
 
       <DropdownButton id="dropdown-item-button" className='movie-item-dropdown' title={<FontAwesomeIcon icon={faEllipsisV} />}>
-        <Dropdown.Item as="button"><EditMovieModal /></Dropdown.Item>
+        <Dropdown.Item as="button"><EditMovieModal movie={movie}/></Dropdown.Item>
         <Dropdown.Item as="button"><DeleteMovieModal /></Dropdown.Item>
       </DropdownButton>
       <div className='movie-item-click' onClick={changeHeader}></div>
@@ -32,8 +33,7 @@ const MovieItem = ({ id, background, openMovie }) => {
 }
 
 MovieItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  background: PropTypes.string.isRequired,
+  movie: PropTypes.object.isRequired,
   openMovie: PropTypes.func.isRequired
 }
 
