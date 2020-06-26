@@ -3,28 +3,34 @@ import Header from "./Header";
 import MainContent from "./MainContent";
 
 const App = () => {
-  const [loading, clickHandler] = useState(false);
 
-  const [movieToShow, showMovieData] = useState({});
+  const useDefaultState = () => {
+    const [loading, setLoading] = useState(false);
+    const [movieToShow, setMovieData] = useState({});
+  
+    return { loading, setLoading, movieToShow, setMovieData}
+  }
+
+  const {loading, setLoading, movieToShow, setMovieData } = useDefaultState();
 
   const movieToOpen = (movie) => {
     memoizedCallback(movie);
   };
 
   const useCloseMovie = () => {
-    clickHandler(false);
-    showMovieData({});
+    setLoading(false);
+    setMovieData({});
   };
 
   const memoizedCallback = useCallback((movie) => {
-    showMovieData(movie);
-  }, []);
+    setMovieData(movie);
+  }, [setMovieData]);
 
   useEffect(() => {
     if (movieToShow.title) {
-      clickHandler(true);
+      setLoading(true);
     }
-  }, [movieToShow]);
+  }, [movieToShow, setLoading]);
 
   return (
     <div className="App">
@@ -33,7 +39,6 @@ const App = () => {
         passMovieToClose={useCloseMovie}
         movie={movieToShow}
       />
-      <p></p>
       <MainContent openMovie={movieToOpen} />
     </div>
   );

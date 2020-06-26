@@ -62,7 +62,7 @@ function EditModal({movie}) {
 
 EditModal.propTypes = {
   movie: PropTypes.object.isRequired,
-}
+};
 
 
 export default EditModal;

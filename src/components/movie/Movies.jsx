@@ -19,6 +19,6 @@ const Movies = ({ passMovie, movies }) => {
 Movies.propTypes = {
   passMovie: PropTypes.func.isRequired,
   movies: PropTypes.object.isRequired,
-}
+};
 
 export default Movies;

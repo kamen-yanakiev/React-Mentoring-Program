@@ -41,6 +41,6 @@ const SelectedMovieHeader = ({ movieToClose, movie }) => {
 SelectedMovieHeader.propTypes = {
   movieToClose: PropTypes.func.isRequired,
   movie: PropTypes.object.isRequired,
-}
+};
 
 export default SelectedMovieHeader;

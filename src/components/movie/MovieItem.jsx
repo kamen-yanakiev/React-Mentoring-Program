@@ -35,6 +35,6 @@ const MovieItem = ({ movie, openMovie }) => {
 MovieItem.propTypes = {
   movie: PropTypes.object.isRequired,
   openMovie: PropTypes.func.isRequired
-}
+};
 
 export default MovieItem;

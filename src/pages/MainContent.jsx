@@ -6,12 +6,12 @@ import moviesData from '../movies.json';
 
 const MainContent = ({ openMovie }) => {
   const movieToOpen = (id) => {
-    const movie = moviesData.find(item => item.id === id)
+    const movie = moviesData.find(item => item.id === id);
     openMovie(movie);
   }
   return (
     <div>
-      <MainContentTop></MainContentTop>
+      <MainContentTop />
       <Movies movies={ moviesData } passMovie={movieToOpen}/>
     </div>
   )
@@ -20,6 +20,6 @@ const MainContent = ({ openMovie }) => {
 Movies.propTypes = {
   passMovie: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired,
-}
+};
 
 export default MainContent;

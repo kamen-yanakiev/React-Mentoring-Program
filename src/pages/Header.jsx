@@ -6,12 +6,6 @@ import SelectedMovieHeader from '../components/header/SelectedMovieHeader';
 const Header = ({ loading, passMovieToClose, movie }) => {
   let isMovieSelected = loading;
 
-
-  // useEffect(() => {
-  //   console.log(props.movie);
-
-  // }, [props.movie]);
-
   return (
     <div>
       {isMovieSelected ? (
@@ -25,7 +19,7 @@ const Header = ({ loading, passMovieToClose, movie }) => {
 
 Header.propTypes = {
   passMovieToClose: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired,
-}
+  movie: PropTypes.object.isRequired
+};
 
 export default Header;

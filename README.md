@@ -7,6 +7,6 @@ Run App:
 ---------------
 
 Lifecycle methods -> MainHeader.jsx
-Custom hook -> App.jsx -> useCloseMovie
+Custom hook -> App.jsx -> useDefaultState
 
 ---------------
