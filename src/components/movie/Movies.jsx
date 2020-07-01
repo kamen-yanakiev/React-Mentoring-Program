@@ -3,14 +3,14 @@ import MovieItem from './MovieItem';
 import PropTypes from 'prop-types';
 
 const Movies = ({ passMovie, movies }) => {
-  const movieToOpen = (id) => {
+  const movieOpenHandler = (id) => {
     passMovie(id);
   }
 
   return (
     <div className='main-content-flex'>
       {movies.map(movie => (
-        <MovieItem key={movie.id} movie={movie} openMovie={movieToOpen} />
+        <MovieItem key={movie.id} movie={movie} onOpenMovie={movieOpenHandler} />
       ))}
     </div>
   )

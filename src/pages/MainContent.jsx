@@ -4,15 +4,15 @@ import Movies from '../components/movie/Movies';
 import PropTypes from 'prop-types';
 import moviesData from '../movies.json';
 
-const MainContent = ({ openMovie }) => {
-  const movieToOpen = (id) => {
+const MainContent = ({ onOpenMovie }) => {
+  const movieOpenHandler = (id) => {
     const movie = moviesData.find(item => item.id === id);
-    openMovie(movie);
+    onOpenMovie(movie);
   }
   return (
     <div>
       <MainContentTop />
-      <Movies movies={ moviesData } passMovie={movieToOpen}/>
+      <Movies movies={ moviesData } passMovie={movieOpenHandler}/>
     </div>
   )
 }

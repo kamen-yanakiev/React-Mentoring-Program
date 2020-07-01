@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Modal } from 'react-bootstrap';
 
-function EditModal({movie}) {
+function EditMovieModal({movie}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -60,9 +60,9 @@ function EditModal({movie}) {
 
 }
 
-EditModal.propTypes = {
+EditMovieModal.propTypes = {
   movie: PropTypes.object.isRequired,
 };
 
 
-export default EditModal;
+export default EditMovieModal;

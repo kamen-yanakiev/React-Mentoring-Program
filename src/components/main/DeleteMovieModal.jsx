@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-function EditModal () {
+function DeleteMovieModal () {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -29,4 +29,4 @@ function EditModal () {
 
 }
 
-export default EditModal;
+export default DeleteMovieModal;

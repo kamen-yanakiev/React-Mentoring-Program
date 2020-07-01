@@ -6,20 +6,20 @@ const App = () => {
 
   const useDefaultState = () => {
     const [loading, setLoading] = useState(false);
-    const [movieToShow, setMovieData] = useState({});
+    const [movieToShow, setMovieData] = useState(null);
   
-    return { loading, setLoading, movieToShow, setMovieData}
+    return { loading, setLoading, movieToShow, setMovieData }
   }
 
-  const {loading, setLoading, movieToShow, setMovieData } = useDefaultState();
+  const { loading, setLoading, movieToShow, setMovieData } = useDefaultState();
 
-  const movieToOpen = (movie) => {
+  const movieOpenHandler = (movie) => {
     memoizedCallback(movie);
   };
 
   const useCloseMovie = () => {
     setLoading(false);
-    setMovieData({});
+    setMovieData(null);
   };
 
   const memoizedCallback = useCallback((movie) => {
@@ -27,7 +27,7 @@ const App = () => {
   }, [setMovieData]);
 
   useEffect(() => {
-    if (movieToShow.title) {
+    if (movieToShow) {
       setLoading(true);
     }
   }, [movieToShow, setLoading]);
@@ -39,7 +39,7 @@ const App = () => {
         passMovieToClose={useCloseMovie}
         movie={movieToShow}
       />
-      <MainContent openMovie={movieToOpen} />
+      <MainContent onOpenMovie={movieOpenHandler} />
     </div>
   );
 };
