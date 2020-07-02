@@ -1,20 +1,19 @@
 import {
 	GET_MOVIE,
-	SET_LOADING,
+	CLOSE_MOVIE,
 } from '../types';
 
 export default (state, action) => {
 	switch (action.type) {
-		case SET_LOADING:
-			return {
-				...state,
-				loading: true
-			};
 		case GET_MOVIE:
 			return {
 				...state,
-				movie: action.payload,
-				loading: false
+				movie: action.payload
+			};
+		case CLOSE_MOVIE:
+			return {
+				...state,
+				movie: null
 			};
 		default:
 			return state;

@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import MoviesContext from '../../context/movies/moviesContext';
 
-const SelectedMovieHeader = ({ movieToClose, movie }) => {
+const SelectedMovieHeader = ({ movie }) => {
 
-  const closeHeader = () => {
-    movieToClose();
-  }
+  const moviesContext = useContext(MoviesContext);
+  const { closeMovie } = moviesContext;
 
   return (
     <div className='movie-header'>
       <div className="header-text">
         <span className="netflix-span">netflix</span>roulette
           </div>
-      <div className='close-btn' onClick={closeHeader}><FontAwesomeIcon icon={faSearch} /></div>
+      <div className='close-btn' onClick={closeMovie}><FontAwesomeIcon icon={faSearch} /></div>
       <div className='movie-header-content'>
         <div className='movie-poster' style={{
           backgroundImage: "url(" + movie.poster_path + ")",
@@ -39,7 +39,6 @@ const SelectedMovieHeader = ({ movieToClose, movie }) => {
 
 
 SelectedMovieHeader.propTypes = {
-  movieToClose: PropTypes.func.isRequired,
   movie: PropTypes.object.isRequired,
 };
 

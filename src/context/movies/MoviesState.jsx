@@ -1,45 +1,40 @@
 import React, { useReducer } from 'react';
 import MoviesContext from './moviesContext';
 import MoviesReducer from './moviesReducer';
+import moviesData from '../../movies.json';
+
 import {
 	GET_MOVIE,
-	SET_LOADING,
+	CLOSE_MOVIE
 } from '../types';
 
 const MoviesState = props => {
+
+	//Create the initial state and dispatch it
 	const initialState = {
-		movie: {},
-		loading: true
+		moviesData,
+		movie: null,
 	}
 
-    const [state, dispatch] = useReducer(MoviesReducer, initialState);
-    
-    
-    const changeHeader = () => {
-        if (state.loading) {
-            getMovie();
-        } else {
-            setLoading(true);
-        }
-    }
+	const [state, dispatch] = useReducer(MoviesReducer, initialState);
 
-    const getMovie = (movie) => {
-        console.log('in getmovie');
-        
-        dispatch({ type: GET_MOVIE, payload: movie });
-    };
+	//Display movie header when a movie is selected
+	const showMovieHeader = (movie) => {
+		dispatch({ type: GET_MOVIE, payload: movie });
+	}
 
-	//Set Loading
-	const setLoading = () => dispatch({ type: SET_LOADING });
+	//Close movie and show default header
+	const closeMovie = () => dispatch({ type: CLOSE_MOVIE });
 
 	return <MoviesContext.Provider
 		value={{
-			movie: state.user,
-            loading: state.loading,
-            changeHeader
+			moviesData: state.moviesData,
+			movie: state.movie,
+			showMovieHeader,
+			closeMovie
 		}}
 	>
-		{ props.children }
+		{props.children}
 	</MoviesContext.Provider>
 }
 

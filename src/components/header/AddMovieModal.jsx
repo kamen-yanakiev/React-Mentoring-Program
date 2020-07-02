@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import moviesData from '../../movies.json';
 
 function AddMovieBtn() {
   let title = '';
-  // const [title, changeTitle] = useState('');
-  // // changeTitle({title: target.value})
-  // const [release_date, changeReleaseDate] = useState('');
-  // const [url, changeUrl] = useState('');
-  // const [genre, changeGenre] = useState('');
-  // const [overview, changeOverview] = useState('');
-  // const [runtime, changeRuntime] = useState('');
 
   const [show, setShow] = useState(false);
 

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import EditMovieModal from '../main/EditMovieModal';
 import DeleteMovieModal from '../main/DeleteMovieModal';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import MoviesContext from '../../context/movies/moviesContext';
 
-const MovieItem = ({ movie, onOpenMovie }) => {
-  const { id, poster_path } = movie;
+const MovieItem = ({ movie }) => {
+  const { poster_path } = movie;
+  const moviesContext = useContext(MoviesContext);
+  const { showMovieHeader } = moviesContext;
 
   const handleMovieClick = () => {
-    onOpenMovie(id);
+    showMovieHeader(movie);
   }
 
   return (
@@ -34,7 +37,6 @@ const MovieItem = ({ movie, onOpenMovie }) => {
 
 MovieItem.propTypes = {
   movie: PropTypes.object.isRequired,
-  onOpenMovie: PropTypes.func.isRequired
 };
 
 export default MovieItem;

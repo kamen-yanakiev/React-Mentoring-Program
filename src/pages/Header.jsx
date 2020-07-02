@@ -1,25 +1,21 @@
-import React from "react";
-import MainHeader from "../components/header/MainHeader";
-import PropTypes from 'prop-types';
+import React, {useContext} from 'react';
+import MainHeader from '../components/header/MainHeader';
 import SelectedMovieHeader from '../components/header/SelectedMovieHeader';
+import MoviesContext from '../context/movies/moviesContext';
 
-const Header = ({ loading, passMovieToClose, movie }) => {
-  let isMovieSelected = loading;
+const Header = () => {
+  const moviesContext = useContext(MoviesContext);
+  const { movie } = moviesContext;
 
   return (
     <div>
-      {isMovieSelected ? (
-        <SelectedMovieHeader movieToClose={passMovieToClose} movie={movie}/>
+      {movie ? (
+        <SelectedMovieHeader movie={movie}/>
       ) : (
         <MainHeader />
       )}
     </div>
   );
-};
-
-Header.propTypes = {
-  passMovieToClose: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired
 };
 
 export default Header;

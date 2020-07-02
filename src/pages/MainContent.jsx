@@ -1,25 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import MainContentTop from '../components/main/MainContentTop';
 import Movies from '../components/movie/Movies';
-import PropTypes from 'prop-types';
-import moviesData from '../movies.json';
+import MoviesContext from '../context/movies/moviesContext';
 
-const MainContent = ({ onOpenMovie }) => {
-  const movieOpenHandler = (id) => {
-    const movie = moviesData.find(item => item.id === id);
-    onOpenMovie(movie);
-  }
+const MainContent = () => {
+  const moviesContext = useContext(MoviesContext);
+  const { moviesData } = moviesContext;
+  
   return (
     <div>
       <MainContentTop />
-      <Movies movies={ moviesData } passMovie={movieOpenHandler}/>
+      <Movies movies={ moviesData } />
     </div>
   )
 }
-
-Movies.propTypes = {
-  passMovie: PropTypes.func.isRequired,
-  movies: PropTypes.array.isRequired,
-};
 
 export default MainContent;

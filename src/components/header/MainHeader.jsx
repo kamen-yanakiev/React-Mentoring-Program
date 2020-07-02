@@ -1,5 +1,5 @@
-import React from "react";
-import AddMovieModal from "./AddMovieModal";
+import React from 'react';
+import AddMovieModal from './AddMovieModal';
 
 class MainHeader extends React.Component {
   constructor() {
