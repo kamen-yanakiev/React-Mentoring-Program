@@ -8,18 +8,18 @@ import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import MoviesContext from '../../context/movies/moviesContext';
 
 const MovieItem = ({ movie }) => {
-  const { poster_path } = movie;
+  const { Poster } = movie;
   const moviesContext = useContext(MoviesContext);
   const { showMovieHeader } = moviesContext;
 
   const handleMovieClick = () => {
-    showMovieHeader(movie);
+    showMovieHeader(movie.Title);
   }
 
   return (
     <div className='movie-item'
       style={{
-        backgroundImage: "url(" + poster_path + ")",
+        backgroundImage: "url(" + Poster + ")",
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'

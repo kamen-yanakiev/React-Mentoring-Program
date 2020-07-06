@@ -17,20 +17,19 @@ const SelectedMovieHeader = ({ movie }) => {
       <div className='close-btn' onClick={closeMovie}><FontAwesomeIcon icon={faSearch} /></div>
       <div className='movie-header-content'>
         <div className='movie-poster' style={{
-          backgroundImage: "url(" + movie.poster_path + ")",
+          backgroundImage: "url(" + movie.Poster + ")",
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat'
         }}>
         </div>
         <div className='movie-details'>
-          <div className='movie-title'>{movie.title} <span className='movie-rating'>{movie.vote_average}</span></div>
-          <div className='short-description'>{movie.tagline}</div>
+          <div className='movie-title'>{movie.Title} <span className='movie-rating'>{movie.imdbRating}</span></div>
           <div className='movie-year-and-duration'>
-            <span className='year'>{movie.release_date}</span>
-            <span className='duration'>{movie.runtime} min</span>
+            <span className='year'>{movie.Released}</span>
+            <span className='duration'>{movie.Runtime}</span>
           </div>
-          <div className='movie-description'>{movie.overview}</div>
+          <div className='movie-description'>{movie.Plot}</div>
         </div>
       </div>
     </div>
