@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import EditMovieModal from '../main/EditMovieModal';
 import DeleteMovieModal from '../main/DeleteMovieModal';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import MoviesContext from '../../context/movies/moviesContext';
 
 const MovieItem = ({ movie }) => {
@@ -13,7 +13,7 @@ const MovieItem = ({ movie }) => {
   const { showMovieHeader } = moviesContext;
 
   const handleMovieClick = () => {
-    showMovieHeader(movie.Title);
+    showMovieHeader(movie.imdbID);
   }
 
   return (
@@ -27,7 +27,7 @@ const MovieItem = ({ movie }) => {
 
       <DropdownButton id="dropdown-item-button" className='movie-item-dropdown' title={<FontAwesomeIcon icon={faEllipsisV} />}>
         <Dropdown.Item as="button"><EditMovieModal movie={movie}/></Dropdown.Item>
-        <Dropdown.Item as="button"><DeleteMovieModal /></Dropdown.Item>
+        <Dropdown.Item as="button"><DeleteMovieModal imdbID={movie.imdbID}/></Dropdown.Item>
       </DropdownButton>
       <div className='movie-item-click' onClick={handleMovieClick}></div>
 

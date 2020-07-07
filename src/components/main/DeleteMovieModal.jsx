@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Modal } from 'react-bootstrap';
+import MoviesContext from '../../context/movies/moviesContext';
 
-function DeleteMovieModal () {
+function DeleteMovieModal ({imdbID}) {
+  //Show or hide popup
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  //Handle delete
+  const moviesContext = useContext(MoviesContext);
+  const { deleteMovie } = moviesContext;
+
+  const handleDelete = () => {
+    deleteMovie(imdbID);
+    handleClose();
+  }
 
   return (
     <div className='edit-movie-btn'>
@@ -19,7 +30,7 @@ function DeleteMovieModal () {
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete this movie?</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleDelete}>
             Confirm
           </Button>
         </Modal.Footer>
@@ -28,5 +39,9 @@ function DeleteMovieModal () {
   )
 
 }
+
+DeleteMovieModal.propTypes = {
+  imdbID: PropTypes.string.isRequired
+};
 
 export default DeleteMovieModal;

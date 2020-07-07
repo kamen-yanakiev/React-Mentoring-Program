@@ -1,6 +1,9 @@
 import {
 	GET_MOVIE,
 	CLOSE_MOVIE,
+	EDIT_MOVIE,
+	DELETE_MOVIE,
+	ADD_MOVIE
 } from '../types';
 
 export default (state, action) => {
@@ -15,6 +18,18 @@ export default (state, action) => {
 				...state,
 				movie: null
 			};
+			case EDIT_MOVIE:
+				return {
+					...state
+				};
+			case DELETE_MOVIE:
+				return {
+					...state
+				}
+			case ADD_MOVIE:
+				return {
+					...state
+				}
 		default:
 			return state;
 	}
