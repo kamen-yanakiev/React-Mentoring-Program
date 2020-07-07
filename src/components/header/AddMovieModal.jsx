@@ -44,6 +44,18 @@ function AddMovieBtn() {
       Runtime: runtimeValue
     };
     addMovie(movie);
+    handleReset();
+  }
+
+  //Reset
+  const handleReset = () => {
+    setId('');
+    setTitle('');
+    setReleaseDate('');
+    setUrl('');
+    setGenre('');
+    setPlot('');
+    setRuntime('');
     handleClose();
   }
 
@@ -84,7 +96,7 @@ function AddMovieBtn() {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleReset}>
             Reset
           </Button>
           <Button variant="primary" onClick={handleAddMovie}>
