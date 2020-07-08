@@ -10,7 +10,7 @@ function AddMovieBtn() {
 
   //Handle addMovie
   const moviesContext = useContext(MoviesContext);
-  const { moviesData, addMovie } = moviesContext;
+  const { addMovie } = moviesContext;
   const [idValue, setId] = useState('');
   const [titleValue, setTitle] = useState('');
   const [releaseDateValue, setReleaseDate] = useState('');
@@ -19,7 +19,6 @@ function AddMovieBtn() {
   const [plotValue, setPlot] = useState('');
   const [runtimeValue, setRuntime] = useState('');
 
-  const idChange = (event) => setId(event.target.value);
   const titleChange = (event) => setTitle(event.target.value);
   const releaseDateChange = (event) => setReleaseDate(event.target.value);
   const urlChange = (event) => setUrl(event.target.value);
@@ -28,24 +27,22 @@ function AddMovieBtn() {
   const runtimeChange = (event) => setRuntime(event.target.value);
 
   const handleAddMovie = () => {
-    const movieIndex = moviesData.findIndex(movie => movie.imdbID === idValue);
-    
-    if (idValue.length === 0 || movieIndex !== -1) {
-      return;
-    }
+    let id = Date.now();
+    setId(id);
 
     let movie = {
       imdbID: idValue,
+      key: idValue,
       Title: titleValue,
       Released: releaseDateValue,
       Poster: urlValue,
       Genre: genreValue,
       Plot: plotValue,
-      Runtime: runtimeValue
+      Runtime: runtimeValue,
     };
     addMovie(movie);
     handleReset();
-  }
+  };
 
   //Reset
   const handleReset = () => {
@@ -57,55 +54,86 @@ function AddMovieBtn() {
     setPlot('');
     setRuntime('');
     handleClose();
-  }
+  };
 
   return (
     <div className='edit-movie-btn'>
-      <Button className='add-movie-btn' variant="primary" onClick={handleShow}>
+      <Button className='add-movie-btn' variant='primary' onClick={handleShow}>
         + Add Movie
       </Button>
 
-      <Modal className="add-movie-modal" show={show} onHide={handleClose}>
+      <Modal className='add-movie-modal' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Movie</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form action="add-movie">
+          <form action='add-movie'>
+            <label htmlFor='movie-name'>Title</label>
+            <input
+              type='text'
+              name='movie-title'
+              id=''
+              value={titleValue}
+              onChange={titleChange}
+            />
 
-            <label htmlFor="movie-name">ID*</label>
-            <input type="text" name="movie-title" id="" value={idValue} onChange={idChange} />
+            <label htmlFor='movie-title'>Release Date</label>
+            <input
+              type='text'
+              name='movie-release-date'
+              id=''
+              value={releaseDateValue}
+              onChange={releaseDateChange}
+            />
 
-            <label htmlFor="movie-name">Title</label>
-            <input type="text" name="movie-title" id="" value={titleValue} onChange={titleChange} />
+            <label htmlFor='release-date'>Movie URL</label>
+            <input
+              type='text'
+              name='release-date'
+              id=''
+              value={urlValue}
+              onChange={urlChange}
+            />
 
-            <label htmlFor="movie-title">Release Date</label>
-            <input type="text" name="movie-release-date" id="" value={releaseDateValue} onChange={releaseDateChange} />
+            <label htmlFor='movie-url'>Genre</label>
+            <input
+              type='text'
+              name='movie-url'
+              id=''
+              value={genreValue}
+              onChange={genreChange}
+            />
 
-            <label htmlFor="release-date">Movie URL</label>
-            <input type="text" name="release-date" id="" value={urlValue} onChange={urlChange} />
+            <label htmlFor='movie-ganre'>Overview</label>
+            <input
+              type='text'
+              name='movie-ganre'
+              id=''
+              value={plotValue}
+              onChange={plotChange}
+            />
 
-            <label htmlFor="movie-url">Genre</label>
-            <input type="text" name="movie-url" id="" value={genreValue} onChange={genreChange} />
-
-            <label htmlFor="movie-ganre">Overview</label>
-            <input type="text" name="movie-ganre" id="" value={plotValue} onChange={plotChange} />
-
-            <label htmlFor="movie-runtime">Runtime</label>
-            <input type="text" name="movie-runtime" id="" value={runtimeValue} onChange={runtimeChange} />
-
+            <label htmlFor='movie-runtime'>Runtime</label>
+            <input
+              type='text'
+              name='movie-runtime'
+              id=''
+              value={runtimeValue}
+              onChange={runtimeChange}
+            />
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleReset}>
+          <Button variant='secondary' onClick={handleReset}>
             Reset
           </Button>
-          <Button variant="primary" onClick={handleAddMovie}>
+          <Button variant='primary' onClick={handleAddMovie}>
             Submit
           </Button>
         </Modal.Footer>
       </Modal>
     </div>
-  )
+  );
 }
 
 export default AddMovieBtn;
