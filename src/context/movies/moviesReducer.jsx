@@ -33,8 +33,8 @@ export default (state, action) => {
       };
     case SORT_MOVIES:
       return {
-        ...state,
         moviesData: action.payload,
+        ...state,
       };
     default:
       return state;

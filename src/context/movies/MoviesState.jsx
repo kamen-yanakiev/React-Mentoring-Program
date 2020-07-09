@@ -17,9 +17,9 @@ const MoviesState = (props) => {
   // const { moviesData } = axios.get('http://www.omdbapi.com/?apikey=[68d5b692]&');
   //Create the initial state and dispatch it
   //Sort movies on initial state
-  moviesData.sort(function (a, b) {
-    return new Date(a.Released) - new Date(b.Released);
-  });
+  // moviesData.sort(function (a, b) {
+  //   return new Date(a.Released) - new Date(b.Released);
+  // });
   const initialState = {
     moviesData,
     movie: null,
@@ -79,26 +79,29 @@ const MoviesState = (props) => {
     dispatch({ type: ADD_MOVIE });
   };
 
+  //Sort movies
   function sortMoviesBy(type) {
-    console.log(moviesData);
-
     switch (type) {
       case 'release-date':
-        moviesData.sort(function (a, b) {
+        moviesData.sort((a, b) => {
           return new Date(a.Released) - new Date(b.Released);
         });
         break;
       case 'rating':
-        moviesData.sort(function (a, b) {
-          return parseFloat(b.imdbRating.localeCompare(a.imdbRating));
+        moviesData.sort((a, b) => {
+          if (Number(a.imdbRating) > Number(b.imdbRating)) return -1;
+          if (Number(a.imdbRating) < Number(b.imdbRating)) return 1;
+          return 0;
         });
         break;
       case 'alphabetically':
+        moviesData.sort((a, b) => {
+          return a.Title.localeCompare(b.Title);
+        });
         break;
       default:
         break;
     }
-    console.log(type);
     dispatch({ type: SORT_MOVIES, payload: moviesData });
   }
 
