@@ -1,14 +1,15 @@
-import React, { useState, useContext } from 'react';
-import MoviesContext from '../../context/movies/moviesContext';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { sortMoviesBy } from '../../context/movies/actions';
 
 const MainContentTop = () => {
-  const moviesContext = useContext(MoviesContext);
-  const { sortMoviesBy } = moviesContext;
   const [sortType, setSortType] = useState('release-date');
+  const dispatch = useDispatch();
 
   const changeSortType = (event) => {
     setSortType(event.target.value);
-    sortMoviesBy(event.target.value);
+
+    dispatch(sortMoviesBy(event.target.value));
   };
 
   return (

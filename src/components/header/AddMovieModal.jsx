@@ -1,16 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
-import MoviesContext from '../../context/movies/moviesContext';
+// import MoviesContext from '../../context/movies/moviesContext';
 
 function AddMovieBtn() {
   //Show or hide popup
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const dispatch = useDispatch();
 
   //Handle addMovie
-  const moviesContext = useContext(MoviesContext);
-  const { addMovie } = moviesContext;
+  // const moviesContext = useContext(MoviesContext);
+  // const { addMovie } = moviesContext;
   const [idValue, setId] = useState('');
   const [titleValue, setTitle] = useState('');
   const [releaseDateValue, setReleaseDate] = useState('');
@@ -27,12 +30,10 @@ function AddMovieBtn() {
   const runtimeChange = (event) => setRuntime(event.target.value);
 
   const handleAddMovie = () => {
-    let id = Date.now();
-    setId(id);
-
+    let id = Date.now().toString();
     let movie = {
-      imdbID: idValue,
-      key: idValue,
+      imdbID: id,
+      key: id,
       Title: titleValue,
       Released: releaseDateValue,
       Poster: urlValue,
@@ -40,7 +41,7 @@ function AddMovieBtn() {
       Plot: plotValue,
       Runtime: runtimeValue,
     };
-    addMovie(movie);
+    dispatch(addMovie(movie));
     handleReset();
   };
 
