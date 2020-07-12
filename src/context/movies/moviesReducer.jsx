@@ -1,4 +1,5 @@
 import {
+  GET_MOVIES,
   GET_MOVIE,
   CLOSE_MOVIE,
   EDIT_MOVIE,
@@ -6,22 +7,22 @@ import {
   ADD_MOVIE,
   SORT_MOVIES,
 } from './types';
-import axios from 'axios';
 import moviesData from '../../movies.json';
 
-debugger
 const defaultState = {
   moviesData,
   movie: null,
+  loading: true
 };
-
-// async function getMovieData() {
-//   const moviesData = await axios.get('http://localhost:3000/movies');
-//   return moviesData;
-// }
 
 export default (state = defaultState, action) => {
   switch (action.type) {
+    case GET_MOVIES:
+      return {
+        ...state,
+        moviesData: action.payload.data,
+        loading: false
+      };
     case GET_MOVIE:
       const movie = state.moviesData[findMovieById(action.payload, state.moviesData)]
       return {

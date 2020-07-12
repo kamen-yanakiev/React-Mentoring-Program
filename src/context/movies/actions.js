@@ -1,4 +1,5 @@
 export const types = {
+  GET_MOVIES: 'GET_MOVIES',
   GET_MOVIE: 'GET_MOVIE',
   CLOSE_MOVIE: 'CLOSE_MOVIE',
   EDIT_MOVIE: 'EDIT_MOVIE',
@@ -6,6 +7,8 @@ export const types = {
   ADD_MOVIE: 'ADD_MOVIE',
   SORT_MOVIES: 'SORT_MOVIES'
 }
+
+export const getMovies = (moviesData) => ({ type: types.GET_MOVIES, payload: moviesData });
 
 export const showMovie = (id) => ({ type: types.GET_MOVIE, payload: id });
 
