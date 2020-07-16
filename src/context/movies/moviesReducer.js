@@ -6,7 +6,8 @@ import sortTypes from '../../constants/sorting';
 const defaultState = {
   moviesData,
   movie: null,
-  loading: true
+  loading: true,
+  error: null
 };
 
 export default (state = defaultState, action) => {
@@ -14,8 +15,20 @@ export default (state = defaultState, action) => {
     case types.GET_MOVIES:
       return {
         ...state,
-        moviesData: action.payload.data,
+        loading: true,
+        error: null
+      };
+    case types.GET_MOVIES_SUCCESS:
+      return {
+        ...state,
+        moviesData: action.payload,
         loading: false
+      };
+    case types.GET_MOVIES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
     case types.GET_MOVIE:
       const movie = state.moviesData[findMovieById(action.payload, state.moviesData)]
