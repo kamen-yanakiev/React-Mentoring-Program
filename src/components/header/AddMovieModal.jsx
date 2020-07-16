@@ -14,7 +14,6 @@ function AddMovieBtn() {
   //Handle addMovie
   // const moviesContext = useContext(MoviesContext);
   // const { addMovie } = moviesContext;
-  const [idValue, setId] = useState('');
   const [titleValue, setTitle] = useState('');
   const [releaseDateValue, setReleaseDate] = useState('');
   const [urlValue, setUrl] = useState('');
@@ -48,7 +47,6 @@ function AddMovieBtn() {
 
   //Reset
   const handleReset = () => {
-    setId('');
     setTitle('');
     setReleaseDate('');
     setUrl('');

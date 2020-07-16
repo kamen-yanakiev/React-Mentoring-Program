@@ -1,6 +1,5 @@
 import {types} from './actions';
 import moviesData from '../../movies.json';
-import axios from 'axios';
 import sortTypes from '../../constants/sorting';
 
 const defaultState = {
