@@ -7,7 +7,9 @@ const defaultState = {
   moviesData,
   movie: null,
   loading: true,
-  error: null
+  error: null,
+  selectedMovieId: null,
+  headerLoading: false
 };
 
 export default (state = defaultState, action) => {
@@ -30,31 +32,79 @@ export default (state = defaultState, action) => {
         loading: false,
         error: action.payload
       };
-    case types.GET_MOVIE:
-      const movie = state.moviesData[findMovieById(action.payload, state.moviesData)]
+    case types.SET_MOVIE_TO_SHOW:
       return {
         ...state,
-        movie
+        selectedMovieId: action.payload
+      };
+    case types.GET_MOVIE_DETAILS:
+      return {
+        ...state,
+        headerLoading: true
+      };
+    case types.GET_MOVIE_DETAILS_SUCCESS:
+      return {
+        ...state,
+        movie: action.payload,
+        headerLoading: false
+      };
+    case types.GET_MOVIE_DETAILS_FAILURE:
+      return {
+        ...state,
+        movie: null,
+        error: action.payload,
+        headerLoading: false
       };
     case types.CLOSE_MOVIE:
       return {
         ...state,
         movie: null,
+        selectedMovieId: null
       };
     case types.EDIT_MOVIE:
       return {
         ...state,
-        moviesData: editMovieHandler(action.payload, state.moviesData),
+        loading: true
+      };
+    case types.EDIT_MOVIE_SUCCESS:
+      return {
+        ...state,
+        loading: false
+      };
+    case types.EDIT_MOVIE_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
     case types.DELETE_MOVIE:
       return {
         ...state,
-        moviesData: deleteMovieHandler(action.payload, state.moviesData),
+        loading: true
+      };
+    case types.DELETE_MOVIE_SUCCESS:
+      return {
+        ...state,
+        loading: false
+      };
+    case types.DELETE_MOVIE_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
     case types.ADD_MOVIE:
       return {
         ...state,
-        moviesData: addMovieHandler(action.payload, state.moviesData),
+      };
+    case types.ADD_MOVIE_SUCCESS:
+      return {
+        ...state,
+      };
+    case types.ADD_MOVIE_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       };
     case types.SORT_MOVIES:
       return {
@@ -65,54 +115,6 @@ export default (state = defaultState, action) => {
       return state;
   }
 };
-
-//Finds and returns the index of a movie in moviesData by searching for an ID
-function findMovieById(id, stateMoviesData) {
-  return stateMoviesData.findIndex((movie) => movie.imdbID === id);
-}
-
-//Handles editMovie logic
-function editMovieHandler(movie, stateMoviesData) {
-  const { imdbID, titleValue, releaseDateValue, urlValue, genreValue, plotValue, runtimeValue } = movie;
-  const movieDataCopy = [...stateMoviesData];
-  const movieIndex = movieDataCopy.findIndex((movie) => movie.imdbID === imdbID);
-
-  if (titleValue.length > 0) {
-    movieDataCopy[movieIndex].Title = titleValue;
-  }
-  if (releaseDateValue.length > 0) {
-    movieDataCopy[movieIndex].Released = releaseDateValue;
-  }
-  if (urlValue.length > 0) {
-    movieDataCopy[movieIndex].Poster = urlValue;
-  }
-  if (genreValue.length > 0) {
-    movieDataCopy[movieIndex].Genre = genreValue;
-  }
-  if (plotValue.length > 0) {
-    movieDataCopy[movieIndex].Plot = plotValue;
-  }
-  if (runtimeValue.length > 0) {
-    movieDataCopy[movieIndex].Runtime = runtimeValue;
-  }
-  return movieDataCopy;
-}
-
-//Handles deleteMovie logic
-function deleteMovieHandler(id, stateMoviesData) {
-  const movieDataCopy = [...stateMoviesData];
-  const movieIndex = findMovieById(id, movieDataCopy);
-  movieDataCopy.splice(movieIndex, 1);
-  axios.delete(`http://localhost:3000/movies/${id}`);
-  return movieDataCopy;
-}
-
-//Handles addMovie logic
-function addMovieHandler(movie, stateMoviesData) {
-  const movieDataCopy = [...stateMoviesData];
-  movieDataCopy.push(movie);
-  return movieDataCopy;
-}
 
 //Handles sortMovies logic
 function sortMoviesHandler(sortType, stateMoviesData) {

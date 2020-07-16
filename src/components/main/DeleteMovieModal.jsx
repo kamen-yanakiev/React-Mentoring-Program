@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteMovie } from '../../context/movies/actions';
+import { startDeleteMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
 // import MoviesContext from '../../context/movies/moviesContext';
 
@@ -17,7 +17,7 @@ function DeleteMovieModal({ imdbID }) {
   // const { deleteMovie } = moviesContext;
 
   const handleDelete = () => {
-    dispatch(deleteMovie(imdbID));
+    startDeleteMovie(dispatch, imdbID);
     handleClose();
   };
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { editMovie } from '../../context/movies/actions';
+import { startEditMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
 // import MoviesContext from '../../context/movies/moviesContext';
 
@@ -23,7 +23,6 @@ function EditMovieModal({ movie }) {
   const [genreValue, setGenre] = useState('');
   const [plotValue, setPlot] = useState('');
   const [runtimeValue, setRuntime] = useState('');
-
   const titleChange = (event) => setTitle(event.target.value);
   const releaseDateChange = (event) => setReleaseDate(event.target.value);
   const urlChange = (event) => setUrl(event.target.value);
@@ -32,8 +31,27 @@ function EditMovieModal({ movie }) {
   const runtimeChange = (event) => setRuntime(event.target.value);
 
   const handleEdit = () => {
-    const newData = { imdbID, titleValue, releaseDateValue, urlValue, genreValue, plotValue, runtimeValue }
-    dispatch(editMovie(newData));
+    const newData = {...movie};
+
+    if (titleValue.length > 0) {
+      newData.Title = titleValue;
+    }
+    if (releaseDateValue.length > 0) {
+      newData.Released = releaseDateValue;
+    }
+    if (urlValue.length > 0) {
+      newData.Poster = urlValue;
+    }
+    if (genreValue.length > 0) {
+      newData.Genre = genreValue;
+    }
+    if (plotValue.length > 0) {
+      newData.Plot = plotValue;
+    }
+    if (runtimeValue > 0) {
+      newData.Runtime = runtimeValue;
+    }
+    startEditMovie(dispatch, newData);
     handleClose();
   }
 

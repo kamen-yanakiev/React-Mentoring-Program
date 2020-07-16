@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { showMovie } from '../../context/movies/actions';
+import { setMovieToShow } from '../../context/movies/actions';
+// import { useSetMovieToShow } from '../../hooks/movie';
 import EditMovieModal from '../main/EditMovieModal';
 import DeleteMovieModal from '../main/DeleteMovieModal';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
@@ -10,14 +11,10 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 const MovieItem = ({ movie }) => {
   const { Poster } = movie;
-  // const store = useStore();
-  // const actions = useContext(Actions)
-  // const { showMovieHeader } = actions;
   const dispatch = useDispatch();
 
   const handleMovieClick = () => {
-    dispatch(showMovie(movie.imdbID));
-    // showMovieHeader(movie.imdbID);
+    dispatch(setMovieToShow(movie.id));
   };
 
   return (

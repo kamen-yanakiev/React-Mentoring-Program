@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMovie } from '../../context/movies/actions';
+import { startAddMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
 // import MoviesContext from '../../context/movies/moviesContext';
 
@@ -33,6 +33,7 @@ function AddMovieBtn() {
     let id = Date.now().toString();
     let movie = {
       imdbID: id,
+      id,
       key: id,
       Title: titleValue,
       Released: releaseDateValue,
@@ -41,7 +42,7 @@ function AddMovieBtn() {
       Plot: plotValue,
       Runtime: runtimeValue,
     };
-    dispatch(addMovie(movie));
+    startAddMovie(dispatch, movie);
     handleReset();
   };
 
