@@ -1,13 +1,7 @@
-import {
-  GET_MOVIES,
-  GET_MOVIE,
-  CLOSE_MOVIE,
-  EDIT_MOVIE,
-  DELETE_MOVIE,
-  ADD_MOVIE,
-  SORT_MOVIES,
-} from './types';
+import {types} from './actions';
 import moviesData from '../../movies.json';
+import axios from 'axios';
+import sortTypes from '../../constants/sorting';
 
 const defaultState = {
   moviesData,
@@ -17,39 +11,39 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case GET_MOVIES:
+    case types.GET_MOVIES:
       return {
         ...state,
         moviesData: action.payload.data,
         loading: false
       };
-    case GET_MOVIE:
+    case types.GET_MOVIE:
       const movie = state.moviesData[findMovieById(action.payload, state.moviesData)]
       return {
         ...state,
         movie
       };
-    case CLOSE_MOVIE:
+    case types.CLOSE_MOVIE:
       return {
         ...state,
         movie: null,
       };
-    case EDIT_MOVIE:
+    case types.EDIT_MOVIE:
       return {
         ...state,
         moviesData: editMovieHandler(action.payload, state.moviesData),
       };
-    case DELETE_MOVIE:
+    case types.DELETE_MOVIE:
       return {
         ...state,
         moviesData: deleteMovieHandler(action.payload, state.moviesData),
       };
-    case ADD_MOVIE:
+    case types.ADD_MOVIE:
       return {
         ...state,
         moviesData: addMovieHandler(action.payload, state.moviesData),
       };
-    case SORT_MOVIES:
+    case types.SORT_MOVIES:
       return {
         ...state,
         moviesData: sortMoviesHandler(action.payload, state.moviesData),
@@ -96,6 +90,7 @@ function deleteMovieHandler(id, stateMoviesData) {
   const movieDataCopy = [...stateMoviesData];
   const movieIndex = findMovieById(id, movieDataCopy);
   movieDataCopy.splice(movieIndex, 1);
+  axios.delete(`http://localhost:3000/movies/${id}`);
   return movieDataCopy;
 }
 
@@ -110,19 +105,19 @@ function addMovieHandler(movie, stateMoviesData) {
 function sortMoviesHandler(sortType, stateMoviesData) {
   const movieDataCopy = [...stateMoviesData];
   switch (sortType) {
-    case 'release-date':
+    case sortTypes.RELEASE_DATE:
       movieDataCopy.sort((a, b) => {
         return new Date(a.Released) - new Date(b.Released);
       });
       break;
-    case 'rating':
+    case sortTypes.RATING:
       movieDataCopy.sort((a, b) => {
         if (Number(a.imdbRating) > Number(b.imdbRating)) return -1;
         if (Number(a.imdbRating) < Number(b.imdbRating)) return 1;
         return 0;
       });
       break;
-    case 'alphabetically':
+    case sortTypes.ALPHABETICALLY:
       movieDataCopy.sort((a, b) => {
         return a.Title.localeCompare(b.Title);
       });

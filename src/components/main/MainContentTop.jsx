@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { sortMoviesBy } from '../../context/movies/actions';
+import sortTypes from '../../constants/sorting';
 
 const MainContentTop = () => {
   const [sortType, setSortType] = useState('release-date');
@@ -24,9 +25,9 @@ const MainContentTop = () => {
       <div className='main-content-sort-span'>
         <span>Sort By</span>
         <select name='sort-select' onChange={changeSortType} value={sortType}>
-          <option value='release-date'>Release Date</option>
-          <option value='rating'>Rating</option>
-          <option value='alphabetically'>Alphabetically</option>
+          <option value={sortTypes.RELEASE_DATE}>Release Date</option>
+          <option value={sortTypes.RATING}>Rating</option>
+          <option value={sortTypes.ALPHABETICALLY}>Alphabetically</option>
         </select>
       </div>
     </div>

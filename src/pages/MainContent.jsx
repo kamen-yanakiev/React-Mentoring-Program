@@ -5,11 +5,12 @@ import { getMovies } from '../context/movies/actions';
 import Movies from '../components/movie/Movies';
 import axios from 'axios';
 import Spinner from './Spinner';
+import { moviesDataSelector, loadingSelector } from '../context/movies/selectors';
 
 const MainContent = () => {
-  const { moviesData, loading } = useSelector((state) => state.movies);
+  const moviesData = useSelector(moviesDataSelector);
+  const loading = useSelector(loadingSelector);
   const dispatch = useDispatch();
-
 
   if (loading) {
     // dispatch(getMovies());
