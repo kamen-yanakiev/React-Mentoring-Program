@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
+import { Link,useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeMovie, startGetMovieToShow } from '../../context/movies/actions';
+import Spinner from '../components/Spinner';
+import { closeMovie, startGetMovieToShow } from '../context/movies/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { headerLoadingSelector, movieSelector } from '../../context/movies/selectors';
-import Spinner from '../../pages/Spinner';
-import { Link,useParams } from 'react-router-dom';
+import { headerLoadingSelector, movieSelector } from '../context/movies/selectors';
 
 
-const SelectedMovieHeader = () => {
+
+
+const MovieDetails = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const movie = useSelector(movieSelector); 
@@ -56,4 +58,4 @@ const SelectedMovieHeader = () => {
   );
 };
 
-export default SelectedMovieHeader;
+export default MovieDetails;

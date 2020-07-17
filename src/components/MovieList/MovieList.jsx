@@ -2,7 +2,7 @@ import React from 'react';
 import MovieItem from './MovieItem';
 import PropTypes from 'prop-types';
 
-const Movies = ({ movies }) => {
+const MovieList = ({ movies }) => {
   return (
     <div className='main-content-flex'>
       {movies.map((movie) => (
@@ -12,8 +12,8 @@ const Movies = ({ movies }) => {
   );
 };
 
-Movies.propTypes = {
+MovieList.propTypes = {
   movies: PropTypes.array.isRequired,
 };
 
-export default Movies;
+export default MovieList;

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import MainContentTop from '../components/main/MainContentTop';
-import { useGetMovies } from '../hooks/movie';
-import Movies from '../components/movie/Movies';
-import Spinner from './Spinner';
+import Header from '../components/header/Header';
+import MainContentTop from '../components/MovieListToolbar';
+import MovieList from '../components/MovieList';
+import Spinner from '../components/Spinner';
 import sortTypes from '../constants/sorting';
 import filterTypes from '../constants/filtering';
+import { useGetMovies } from '../hooks/movie';
 import { moviesDataSelector, loadingSelector, errorSelector, sortBySelector, filterBySelector } from '../context/movies/selectors';
 
 function sortMovies(sortType, stateMoviesData) {
@@ -36,7 +37,7 @@ function filterMovies(filterType, moviesData) {
   return moviesData.filter(movie => movie.Genre.toLowerCase().includes(filterType.toLowerCase()));
 }
 
-const MainContent = () => {
+const MovieListPage = () => {
   const moviesData = useSelector(moviesDataSelector);
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
@@ -46,20 +47,22 @@ const MainContent = () => {
   const sortedData = sortMovies(sortBy, moviesData);
 
   const filteredData = filterMovies(filterBy, sortedData);
-
   useGetMovies();
+
   if (error) {
     return <div>Error</div>
   }
   return (
-    loading 
+    <div>
+      <Header />
+    {loading 
     ? <Spinner /> 
     : <div>
     <MainContentTop />
-    <Movies movies={filteredData} />
-  </div>
-    
+    <MovieList movies={filteredData} />
+    </div>}
+    </div>
   );
 };
 
-export default MainContent;
+export default MovieListPage;
