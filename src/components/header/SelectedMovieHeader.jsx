@@ -1,21 +1,35 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { closeMovie } from '../../context/movies/actions';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { closeMovie, startGetMovieToShow } from '../../context/movies/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { headerLoadingSelector, movieSelector } from '../../context/movies/selectors';
+import Spinner from '../../pages/Spinner';
+import { Link,useParams } from 'react-router-dom';
 
-const SelectedMovieHeader = ({ movie }) => {
+
+const SelectedMovieHeader = () => {
+  const {id} = useParams();
   const dispatch = useDispatch();
+  const movie = useSelector(movieSelector); 
+  const headerLoading = useSelector(headerLoadingSelector);
+
+  useEffect(() => {
+    if (id) {
+      startGetMovieToShow(dispatch, id);
+    }
+  }, [id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleCloseMovie = () => dispatch(closeMovie());
 
   return (
-    <div className='movie-header'>
+    headerLoading 
+    ? <Spinner />
+    : <div className='movie-header'>
       <div className='header-text'>
         <span className='netflix-span'>netflix</span>roulette
       </div>
-      <div className='close-btn' onClick={handleCloseMovie}><FontAwesomeIcon icon={faSearch} /></div>
+      <Link to={'/'} className='close-btn' onClick={handleCloseMovie}><FontAwesomeIcon icon={faSearch} /></Link>
       <div className='movie-header-content'>
         <div
           className='movie-poster'
@@ -40,10 +54,6 @@ const SelectedMovieHeader = ({ movie }) => {
       </div>
     </div>
   );
-};
-
-SelectedMovieHeader.propTypes = {
-  movie: PropTypes.object.isRequired,
 };
 
 export default SelectedMovieHeader;

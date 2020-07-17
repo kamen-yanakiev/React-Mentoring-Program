@@ -37,7 +37,8 @@ export default (state = defaultState, action) => {
     case types.SET_MOVIE_TO_SHOW:
       return {
         ...state,
-        selectedMovieId: action.payload
+        selectedMovieId: action.payload,
+        headerLoading: true
       };
     case types.GET_MOVIE_DETAILS:
       return {

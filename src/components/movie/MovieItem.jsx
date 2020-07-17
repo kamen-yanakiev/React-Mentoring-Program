@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setMovieToShow } from '../../context/movies/actions';
-// import { useSetMovieToShow } from '../../hooks/movie';
 import EditMovieModal from '../main/EditMovieModal';
 import DeleteMovieModal from '../main/DeleteMovieModal';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 
 const MovieItem = ({ movie }) => {
   const { Poster } = movie;
@@ -31,7 +31,7 @@ const MovieItem = ({ movie }) => {
         <Dropdown.Item as="button"><EditMovieModal movie={movie} /></Dropdown.Item>
         <Dropdown.Item as="button"><DeleteMovieModal imdbID={movie.imdbID} /></Dropdown.Item>
       </DropdownButton>
-      <div className='movie-item-click' onClick={handleMovieClick}></div>
+      <Link to={`/movie/${movie.id}`} className='movie-item-click' onClick={handleMovieClick}></Link>
     </div>
   );
 };
