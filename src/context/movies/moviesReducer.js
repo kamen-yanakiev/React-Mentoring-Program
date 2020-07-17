@@ -1,10 +1,9 @@
 import {types} from './actions';
-import moviesData from '../../movies.json';
 import sortTypes from '../../constants/sorting';
 import filterTypes from '../../constants/filtering';
 
 const defaultState = {
-  moviesData,
+  moviesData: [],
   movie: null,
   loading: true,
   error: null,

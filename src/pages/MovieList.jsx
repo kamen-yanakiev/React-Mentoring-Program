@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner';
 import sortTypes from '../constants/sorting';
 import filterTypes from '../constants/filtering';
 import { useGetMovies } from '../hooks/movie';
-import { moviesDataSelector, loadingSelector, errorSelector, sortBySelector, filterBySelector } from '../context/movies/selectors';
+import { loadingSelector, errorSelector, sortBySelector, filterBySelector } from '../context/movies/selectors';
 
 function sortMovies(sortType, stateMoviesData) {
   switch (sortType) {
@@ -38,7 +38,7 @@ function filterMovies(filterType, moviesData) {
 }
 
 const MovieListPage = () => {
-  const moviesData = useSelector(moviesDataSelector);
+  const moviesData = useGetMovies();
   const loading = useSelector(loadingSelector);
   const error = useSelector(errorSelector);
   const sortBy = useSelector(sortBySelector);
@@ -47,7 +47,6 @@ const MovieListPage = () => {
   const sortedData = sortMovies(sortBy, moviesData);
 
   const filteredData = filterMovies(filterBy, sortedData);
-  useGetMovies();
 
   if (error) {
     return <div>Error</div>
