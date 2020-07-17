@@ -18,7 +18,8 @@ export const types = {
   ADD_MOVIE: 'ADD_MOVIE',
   ADD_MOVIE_SUCCESS: 'ADD_MOVIE_SUCCESS',
   ADD_MOVIE_FAILURE: 'ADD_MOVIE_FAILURE',
-  SORT_MOVIES: 'SORT_MOVIES'
+  SORT_MOVIES: 'SORT_MOVIES',
+  FILTER_MOVIES: 'FILTER_MOVIES'
 }
 
 export const getMovies = () => ({ type: types.GET_MOVIES });
@@ -45,6 +46,8 @@ export const addMovieSuccess = (movie) => ({ type: types.ADD_MOVIE_SUCCESS, payl
 export const addMovieFailure = (movie) => ({ type: types.ADD_MOVIE_FAILURE, payload: movie });
 
 export const sortMoviesBy = (sortType) => ({ type: types.SORT_MOVIES, payload: sortType });
+
+export const filterMoviesBy = (filterType) => ({ type: types.FILTER_MOVIES, payload: filterType });
 
 //Async handlers
 export const startGetMovies = (dispatch) => {
@@ -95,7 +98,6 @@ export const startDeleteMovie = (dispatch, id) => {
 
 export const startAddMovie = (dispatch, movie) => {
     dispatch(addMovie());
-    console.log(movie);
     addMovieRequest(movie)
     .then((res) =>{
       dispatch(addMovieSuccess(res));

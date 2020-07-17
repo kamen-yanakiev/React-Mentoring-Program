@@ -3,19 +3,15 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startDeleteMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
-// import MoviesContext from '../../context/movies/moviesContext';
 
 function DeleteMovieModal({ imdbID }) {
-  //Show or hide popup
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const dispatch = useDispatch();
 
-  //Handle delete
-  // const moviesContext = useContext(MoviesContext);
-  // const { deleteMovie } = moviesContext;
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
+  //Handle delete
   const handleDelete = () => {
     startDeleteMovie(dispatch, imdbID);
     handleClose();

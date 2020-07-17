@@ -1,6 +1,7 @@
 import {types} from './actions';
 import moviesData from '../../movies.json';
 import sortTypes from '../../constants/sorting';
+import filterTypes from '../../constants/filtering';
 
 const defaultState = {
   moviesData,
@@ -8,7 +9,9 @@ const defaultState = {
   loading: true,
   error: null,
   selectedMovieId: null,
-  headerLoading: false
+  headerLoading: false,
+  sortBy: sortTypes.RELEASE_DATE,
+  filterBy: filterTypes.ALL
 };
 
 export default (state = defaultState, action) => {
@@ -108,36 +111,14 @@ export default (state = defaultState, action) => {
     case types.SORT_MOVIES:
       return {
         ...state,
-        moviesData: sortMoviesHandler(action.payload, state.moviesData),
+        sortBy: action.payload,
+      };
+    case types.FILTER_MOVIES:
+      return {
+        ...state,
+        filterBy: action.payload,
       };
     default:
       return state;
   }
 };
-
-//Handles sortMovies logic
-function sortMoviesHandler(sortType, stateMoviesData) {
-  const movieDataCopy = [...stateMoviesData];
-  switch (sortType) {
-    case sortTypes.RELEASE_DATE:
-      movieDataCopy.sort((a, b) => {
-        return new Date(a.Released) - new Date(b.Released);
-      });
-      break;
-    case sortTypes.RATING:
-      movieDataCopy.sort((a, b) => {
-        if (Number(a.imdbRating) > Number(b.imdbRating)) return -1;
-        if (Number(a.imdbRating) < Number(b.imdbRating)) return 1;
-        return 0;
-      });
-      break;
-    case sortTypes.ALPHABETICALLY:
-      movieDataCopy.sort((a, b) => {
-        return a.Title.localeCompare(b.Title);
-      });
-      break;
-    default:
-      break;
-  }
-  return movieDataCopy;
-}

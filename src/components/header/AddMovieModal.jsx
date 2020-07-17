@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { startAddMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
-// import MoviesContext from '../../context/movies/moviesContext';
 
 function AddMovieBtn() {
   //Show or hide popup
@@ -12,8 +11,6 @@ function AddMovieBtn() {
   const dispatch = useDispatch();
 
   //Handle addMovie
-  // const moviesContext = useContext(MoviesContext);
-  // const { addMovie } = moviesContext;
   const [titleValue, setTitle] = useState('');
   const [releaseDateValue, setReleaseDate] = useState('');
   const [urlValue, setUrl] = useState('');

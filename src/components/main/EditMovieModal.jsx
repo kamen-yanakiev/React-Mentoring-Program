@@ -3,26 +3,21 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { startEditMovie } from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
-// import MoviesContext from '../../context/movies/moviesContext';
 
 function EditMovieModal({ movie }) {
-  //Show or hide popup
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const dispatch = useDispatch();
-
   const { imdbID, Title, Released, Poster, Genre, Plot, Runtime } = movie;
 
   //Handle editing
-  // const moviesContext = useContext(MoviesContext);
-  // const { editMovie } = moviesContext;
-  const [titleValue, setTitle] = useState('');
-  const [releaseDateValue, setReleaseDate] = useState('');
-  const [urlValue, setUrl] = useState('');
-  const [genreValue, setGenre] = useState('');
-  const [plotValue, setPlot] = useState('');
-  const [runtimeValue, setRuntime] = useState('');
+  const [show, setShow] = useState(false);
+  const [titleValue, setTitle] = useState(Title);
+  const [releaseDateValue, setReleaseDate] = useState(Released);
+  const [urlValue, setUrl] = useState(Poster);
+  const [genreValue, setGenre] = useState(Genre);
+  const [plotValue, setPlot] = useState(Plot);
+  const [runtimeValue, setRuntime] = useState(Runtime);
+
+  const dispatch = useDispatch();
+
   const titleChange = (event) => setTitle(event.target.value);
   const releaseDateChange = (event) => setReleaseDate(event.target.value);
   const urlChange = (event) => setUrl(event.target.value);
@@ -30,28 +25,20 @@ function EditMovieModal({ movie }) {
   const plotChange = (event) => setPlot(event.target.value);
   const runtimeChange = (event) => setRuntime(event.target.value);
 
-  const handleEdit = () => {
-    const newData = {...movie};
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    if (titleValue.length > 0) {
-      newData.Title = titleValue;
+  const handleEdit = () => {
+    const editedData = {
+      ...movie,
+      Title: titleValue,
+      Released: releaseDateValue,
+      Poster: urlValue,
+      Genre: genreValue,
+      Plot: plotValue,
+      Runtime: runtimeValue
     }
-    if (releaseDateValue.length > 0) {
-      newData.Released = releaseDateValue;
-    }
-    if (urlValue.length > 0) {
-      newData.Poster = urlValue;
-    }
-    if (genreValue.length > 0) {
-      newData.Genre = genreValue;
-    }
-    if (plotValue.length > 0) {
-      newData.Plot = plotValue;
-    }
-    if (runtimeValue > 0) {
-      newData.Runtime = runtimeValue;
-    }
-    startEditMovie(dispatch, newData);
+    startEditMovie(dispatch, editedData);
     handleClose();
   }
 
