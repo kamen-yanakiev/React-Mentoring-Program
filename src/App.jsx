@@ -12,9 +12,9 @@ const App = () => {
           <Route exact path="/">
             <Redirect to="/movies" />
           </Route>
-          <Route exact path='/movies' component={MainContentHolder}/>
-          <Route exact path='/movie/:id' component={SelectedMovieHeader}/>
-          <Route path='/' component={ErrorPage}/>
+          <Route exact path='/movies' component={MainContentHolder} />
+          <Route exact path='/movie/:id' component={SelectedMovieHeader} />
+          <Route path='/' component={ErrorPage} />
         </Switch>
       </div>
     </Router>
