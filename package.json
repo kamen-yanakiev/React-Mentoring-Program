@@ -40,6 +40,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
+    "test-coverage": "jest --collect-coverage",
     "eject": "react-scripts eject",
     "server-start": "json-server --watch src/movies-copy.json"
   },

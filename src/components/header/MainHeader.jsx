@@ -5,19 +5,8 @@ class MainHeader extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchPlaceholderText: '',
-      textVariants: [
-        'What do you want to watch?',
-        'Search for your movie here',
-        'What would you like to watch?',
-        'Find a movie',
-      ],
+      searchPlaceholderText: 'Search for your movie here'
     };
-  }
-
-  componentDidMount() {
-    let index = Math.floor(Math.random() * 4);
-    this.setState({ searchPlaceholderText: this.state.textVariants[index] });
   }
 
   render() {

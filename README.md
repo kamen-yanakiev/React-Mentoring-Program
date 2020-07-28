@@ -8,9 +8,12 @@ Run App:
 
 ---
 
-Updated components to use Redux (MainContent.jsx)
-Added json-server and API calls
+npm run test
 
-TODO --> Implement on error, and more API calls
+npm run test-coverage
+
+snapshot test -> App.test.js
+
+reducer tests -> moviesReducer.test.js
 
 ---

@@ -69,7 +69,7 @@ function AddMovieBtn() {
             <input
               type='text'
               name='movie-title'
-              id=''
+              id='movie-title'
               value={titleValue}
               onChange={titleChange}
             />
