@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddMovieModal Title input Should capture title correctly onChange 1`] = `ReactWrapper {}`;
