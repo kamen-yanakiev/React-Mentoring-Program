@@ -5,7 +5,7 @@ import reducer from '../../context/movies/reducers';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme, { mount, shallow } from 'enzyme';
 import AddMovieModal from './AddMovieModal';
-//---------WIP---------
+//---------WIP---------//
 
 const store = createStore(reducer);
 
@@ -30,7 +30,7 @@ describe('AddMovieModal', () => {
             const wrapper = mount(<Provider store={store}><AddMovieModal /></Provider>);
             let input = wrapper.find('input');
             // const title = wrapper.find(AddMovieModal);
-            expect(input).toMatchSnapshot();
+            expect(wrapper).toMatchSnapshot();
             // expect(wrapper.find('#movie-title').value).toBe('');
             // wrapper.find('#movie-title').simulate('change', { target: { name: 'input', value: '02' } })
             // title.instance().value = "Test";
