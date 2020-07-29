@@ -22,13 +22,12 @@ describe('AddMovieModal', () => {
         // wrapper = shallow(<Provider store={store}><AddMovieModal /></Provider>)
     });
 
-
-
     describe("Title input", () => {
         it("Should capture title correctly onChange", () => {
 
-            const wrapper = mount(<Provider store={store}><AddMovieModal /></Provider>);
-            let input = wrapper.find('input');
+            // const wrapper = mount(<Provider store={store}><AddMovieModal /></Provider>).get(0);
+            const wrapper = mount(shallow(<Provider store={store}><AddMovieModal /></Provider>).get(0));
+            // let input = wrapper.find('input');
             // const title = wrapper.find(AddMovieModal);
             expect(wrapper).toMatchSnapshot();
             // expect(wrapper.find('#movie-title').value).toBe('');
