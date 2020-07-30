@@ -10,7 +10,7 @@ import App from "./App";
 
 configure({ adapter: new Adapter() });
 const store = createStore(reducer);
-it('renders correctly', () => {
+    it('renders correctly', () => {
     const tree = renderer
         .create(<Provider store={store}>
             <App />
@@ -19,8 +19,8 @@ it('renders correctly', () => {
     expect(tree).toMatchSnapshot();
 });
 
-describe("App", () => {
-    test("Verify that it is created", () => {
+describe('App', () => {
+    it('should have a length of 1', () => {
         const component = mount(
             <Provider store={store}>
                 <App />
