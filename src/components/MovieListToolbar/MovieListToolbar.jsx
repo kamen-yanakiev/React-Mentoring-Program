@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { sortMoviesBy, filterMoviesBy } from '../../context/movies/actions';
 import sortTypes from '../../constants/sorting';
 import filterTypes from '../../constants/filtering';
-import { sortBySelector } from '../../context/movies/selectors';
+import { sortBySelector, filterBySelector } from '../../context/movies/selectors';
+import { useEffect } from 'react';
 
 const MainContentTop = () => {
   const dispatch = useDispatch();
   const sortBy = useSelector(sortBySelector);
+  const filterBy = useSelector(filterBySelector);
 
   const changeSortType = (event) => {
 
@@ -16,7 +19,12 @@ const MainContentTop = () => {
 
   const changeFilterType = (filterType) => {
     dispatch(filterMoviesBy(filterType))
-  }
+  };
+
+  useEffect(() => {
+    console.log('in use effect');
+ 
+  }, [filterBy])
 
   return (
     <div className='main-content-top'>

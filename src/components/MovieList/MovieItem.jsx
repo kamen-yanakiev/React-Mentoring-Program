@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { setMovieToShow } from '../../context/movies/actions';
 import EditMovieModal from '../EditMovie/EditMovieModal';
@@ -7,7 +8,6 @@ import DeleteMovieModal from '../DeleteMovie/DeleteMovieModal';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
 
 const MovieItem = ({ movie }) => {
   const { Poster } = movie;
