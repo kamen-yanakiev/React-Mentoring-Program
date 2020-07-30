@@ -74,7 +74,7 @@ function AddMovieBtn() {
               onChange={titleChange}
             />
 
-            <label htmlFor='movie-title'>Release Date</label>
+            <label htmlFor='release-date'>Release Date</label>
             <input
               type='text'
               name='movie-release-date'
@@ -83,28 +83,28 @@ function AddMovieBtn() {
               onChange={releaseDateChange}
             />
 
-            <label htmlFor='release-date'>Movie URL</label>
+            <label htmlFor='movie-url'>Movie URL</label>
             <input
               type='text'
-              name='release-date'
+              name='movie-url'
               id=''
               value={urlValue}
               onChange={urlChange}
             />
 
-            <label htmlFor='movie-url'>Genre</label>
+            <label htmlFor='movie-genre'>Genre</label>
             <input
               type='text'
-              name='movie-url'
+              name='movie-genre'
               id=''
               value={genreValue}
               onChange={genreChange}
             />
 
-            <label htmlFor='movie-ganre'>Overview</label>
+            <label htmlFor='movie-overview'>Overview</label>
             <input
               type='text'
-              name='movie-ganre'
+              name='movie-overview'
               id=''
               value={plotValue}
               onChange={plotChange}
