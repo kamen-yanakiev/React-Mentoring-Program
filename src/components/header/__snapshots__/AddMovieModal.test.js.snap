@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddMovieModal Title input Should capture title correctly onChange 1`] = `
+exports[`AddMovieModal Title input Should match the snapshot 1`] = `
 <div
   className="edit-movie-btn"
 >
