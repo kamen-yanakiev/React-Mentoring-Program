@@ -20,9 +20,10 @@ const MainContentTop = () => {
   };
 
   const changeFilterType = (filterType) => {
-    // history.push( {
-    //   search: `${history.location.search}&${filterType.toLowerCase()}`
-    // });
+    let newLocation = history.location.search.split('&');
+    history.push( {
+      search: `${newLocation[0]}&${filterType.toLowerCase()}`
+    });
     dispatch(filterMoviesBy(filterType));
   };
 
@@ -40,25 +41,25 @@ const MainContentTop = () => {
       dispatch(sortMoviesBy(sortTypes.ALPHABETICALLY));
     }
 
-    // if (!history.location.search.includes(filterTypes.ALL.toLowerCase()) && !history.location.search.includes(filterTypes.DOCUMENTARY.toLowerCase()) && 
-    // !history.location.search.includes(filterTypes.COMEDY.toLowerCase())  && !history.location.search.includes(filterTypes.HORROR.toLowerCase())  && 
-    // !history.location.search.includes(filterTypes.CRIME.toLowerCase())) {
-    //   history.push( {
-    //     search: `${history.location.search}&${filterTypes.ALL.toLowerCase()}`
-    //   });
-    // }
-    // debugger
-    // if (history.location.search.includes(filterTypes.ALL.toLowerCase())) {
-    //   dispatch(filterMoviesBy(filterTypes.ALL));
-    // } else if (history.location.search.includes(filterTypes.DOCUMENTARY.toLowerCase())) {
-    //   dispatch(filterMoviesBy(filterTypes.DOCUMENTARY));
-    // } else if (history.location.search.includes(filterTypes.COMEDY.toLowerCase())) {
-    //   dispatch(filterMoviesBy(filterTypes.COMEDY));
-    // } else if (history.location.search.includes(filterTypes.HORROR.toLowerCase())) {
-    //   dispatch(filterMoviesBy(filterTypes.HORROR));
-    // } else if (history.location.search.includes(filterTypes.CRIME.toLowerCase())) {
-    //   dispatch(filterMoviesBy(filterTypes.CRIME));
-    // }
+    if (!history.location.search.includes(filterTypes.ALL.toLowerCase()) && !history.location.search.includes(filterTypes.DOCUMENTARY.toLowerCase()) && 
+    !history.location.search.includes(filterTypes.COMEDY.toLowerCase())  && !history.location.search.includes(filterTypes.HORROR.toLowerCase())  && 
+    !history.location.search.includes(filterTypes.CRIME.toLowerCase())) {
+      history.push( {
+        search: `${history.location.search}&${filterTypes.ALL.toLowerCase()}`
+      });
+    }
+
+    if (history.location.search.includes(filterTypes.ALL.toLowerCase())) {
+      dispatch(filterMoviesBy(filterTypes.ALL));
+    } else if (history.location.search.includes(filterTypes.DOCUMENTARY.toLowerCase())) {
+      dispatch(filterMoviesBy(filterTypes.DOCUMENTARY));
+    } else if (history.location.search.includes(filterTypes.COMEDY.toLowerCase())) {
+      dispatch(filterMoviesBy(filterTypes.COMEDY));
+    } else if (history.location.search.includes(filterTypes.HORROR.toLowerCase())) {
+      dispatch(filterMoviesBy(filterTypes.HORROR));
+    } else if (history.location.search.includes(filterTypes.CRIME.toLowerCase())) {
+      dispatch(filterMoviesBy(filterTypes.CRIME));
+    }
  
   }, [filterBy, dispatch, history])
 
