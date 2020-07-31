@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import { sortMoviesBy, filterMoviesBy } from '../../context/movies/actions';
