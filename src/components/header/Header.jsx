@@ -1,7 +1,7 @@
 import React from 'react';
-import AddMovieModal from './AddMovieModal';
+import AddMovieModal from '../AddMovie/AddMovieModal';
 
-class MainHeader extends React.Component {
+class Header extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -43,4 +43,4 @@ class MainHeader extends React.Component {
   }
 }
 
-export default MainHeader;
+export default Header;

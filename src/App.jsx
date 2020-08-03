@@ -1,6 +1,6 @@
 import React from 'react';
-import MainContentHolder from './pages/MainContentHolder';
-import SelectedMovieHeader from './components/header/SelectedMovieHeader';
+import MovieList from './pages/MovieList';
+import MovieDetails from './pages/MovieDetails';
 import ErrorPage from './pages/ErrorPage';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
@@ -12,8 +12,8 @@ const App = () => {
           <Route exact path="/">
             <Redirect to="/movies" />
           </Route>
-          <Route exact path='/movies' component={MainContentHolder}/>
-          <Route exact path='/movie/:id' component={SelectedMovieHeader}/>
+          <Route exact path='/movies' component={MovieList}/>
+          <Route exact path='/movie/:id' component={MovieDetails}/>
           <Route path='/' component={ErrorPage}/>
         </Switch>
       </div>
