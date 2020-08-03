@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddMovieModal Title input Should match the snapshot 1`] = `
+exports[`AddMovieModal AddMovieModal Should match the snapshot 1`] = `
 <div
   className="edit-movie-btn"
 >
@@ -49,7 +49,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
           Release Date
         </label>
         <input
-          id=""
+          id="movie-release-date"
           name="movie-release-date"
           onChange={[Function]}
           type="text"
@@ -61,7 +61,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
           Movie URL
         </label>
         <input
-          id=""
+          id="movie-url"
           name="movie-url"
           onChange={[Function]}
           type="text"
@@ -73,7 +73,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
           Genre
         </label>
         <input
-          id=""
+          id="movie-genre"
           name="movie-genre"
           onChange={[Function]}
           type="text"
@@ -85,7 +85,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
           Overview
         </label>
         <input
-          id=""
+          id="movie-overview"
           name="movie-overview"
           onChange={[Function]}
           type="text"
@@ -97,7 +97,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
           Runtime
         </label>
         <input
-          id=""
+          id="movie-runtime"
           name="movie-runtime"
           onChange={[Function]}
           type="text"
@@ -109,6 +109,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
       <Button
         active={false}
         disabled={false}
+        id="add-reset-btn"
         onClick={[Function]}
         type="button"
         variant="secondary"
@@ -118,6 +119,7 @@ exports[`AddMovieModal Title input Should match the snapshot 1`] = `
       <Button
         active={false}
         disabled={false}
+        id="add-submit-btn"
         onClick={[Function]}
         type="button"
         variant="primary"

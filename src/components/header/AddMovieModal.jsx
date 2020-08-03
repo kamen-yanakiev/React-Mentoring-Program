@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { startAddMovie } from '../../context/movies/actions';
+import * as actions from '../../context/movies/actions';
 import { Button, Modal } from 'react-bootstrap';
 
 function AddMovieBtn() {
@@ -38,7 +38,7 @@ function AddMovieBtn() {
       Plot: plotValue,
       Runtime: runtimeValue,
     };
-    startAddMovie(dispatch, movie);
+    actions.startAddMovie(dispatch, movie);
     handleReset();
   };
 
@@ -78,7 +78,7 @@ function AddMovieBtn() {
             <input
               type='text'
               name='movie-release-date'
-              id=''
+              id='movie-release-date'
               value={releaseDateValue}
               onChange={releaseDateChange}
             />
@@ -87,7 +87,7 @@ function AddMovieBtn() {
             <input
               type='text'
               name='movie-url'
-              id=''
+              id='movie-url'
               value={urlValue}
               onChange={urlChange}
             />
@@ -96,7 +96,7 @@ function AddMovieBtn() {
             <input
               type='text'
               name='movie-genre'
-              id=''
+              id='movie-genre'
               value={genreValue}
               onChange={genreChange}
             />
@@ -105,7 +105,7 @@ function AddMovieBtn() {
             <input
               type='text'
               name='movie-overview'
-              id=''
+              id='movie-overview'
               value={plotValue}
               onChange={plotChange}
             />
@@ -114,17 +114,17 @@ function AddMovieBtn() {
             <input
               type='text'
               name='movie-runtime'
-              id=''
+              id='movie-runtime'
               value={runtimeValue}
               onChange={runtimeChange}
             />
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='secondary' onClick={handleReset}>
+          <Button id='add-reset-btn' variant='secondary' onClick={handleReset}>
             Reset
           </Button>
-          <Button variant='primary' onClick={handleAddMovie}>
+          <Button id='add-submit-btn' variant='primary' onClick={handleAddMovie}>
             Submit
           </Button>
         </Modal.Footer>
