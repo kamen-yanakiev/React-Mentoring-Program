@@ -48,6 +48,7 @@
       font-family: 'PT Sans', sans-serif;
       flex: 0 0 100%;
       color: white;
+      font-size: 1.5rem;
     }
 
     .search-and-results {
@@ -156,10 +157,11 @@
       text-transform: uppercase;
     }
   }
-  .main-content-sort-span {
+  .main-content-sort {
     margin-right: 2rem;
     text-transform: uppercase;
-    span {
+    .main-content-sort-label {
+      color: white;
       margin-right: .5rem;
     }
     select {

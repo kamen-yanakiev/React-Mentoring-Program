@@ -8,12 +8,8 @@ Run App:
 
 ---
 
-npm run test
+npm install
 
-npm run test-coverage
-
-snapshot test -> App.test.js
-
-reducer tests -> moviesReducer.test.js
+npm run storybook -> for stories
 
 ---

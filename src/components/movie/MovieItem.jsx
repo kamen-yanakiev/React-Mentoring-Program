@@ -27,7 +27,7 @@ const MovieItem = ({ movie }) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <DropdownButton id="dropdown-item-button" className='movie-item-dropdown' title={<FontAwesomeIcon icon={faEllipsisV} />}>
+      <DropdownButton id={`dropdown-item-button-${movie.id}`} className='movie-item-dropdown' name={`dropdown-item-button-${movie.id}`} title={<FontAwesomeIcon icon={faEllipsisV} />}>
         <Dropdown.Item as="button"><EditMovieModal movie={movie} /></Dropdown.Item>
         <Dropdown.Item as="button"><DeleteMovieModal imdbID={movie.imdbID} /></Dropdown.Item>
       </DropdownButton>

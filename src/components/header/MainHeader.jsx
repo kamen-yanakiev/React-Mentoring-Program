@@ -17,13 +17,13 @@ class MainHeader extends React.Component {
         </div>
         <AddMovieModal />
         <div className='search-and-results'>
-          <h2 className='find-movie'>Find your movie</h2>
+          <label htmlFor='main-header-search' className='find-movie'>Find your movie</label>
           <input
             type='text'
             name='searchbar'
             className='search-movie-input'
             placeholder={this.state.searchPlaceholderText}
-            id=''
+            id='main-header-search'
           />
           <button className='movie-search-btn'>Search</button>
         </div>
