@@ -32,7 +32,6 @@ module.exports = {
     overrides: [
         {
             excludedFiles: 'src/**/*.js',
-            'excludedFiles': '*.js',
         },
     ],
 };
