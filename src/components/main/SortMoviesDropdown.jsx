@@ -21,7 +21,7 @@ const SortMoviesDropdown = () => {
                 <option value={sortTypes.ALPHABETICALLY}>Alphabetically</option>
             </select>
         </div>
-    )
-}
+    );
+};
 
 export default SortMoviesDropdown;
