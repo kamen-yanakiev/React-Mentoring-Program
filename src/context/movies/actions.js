@@ -1,26 +1,28 @@
-import { getMoviesRequest, setMovieToShowRequest, editMovieRequest, deleteMovieRequest, addMovieRequest } from '../../services/api';
+import {
+    getMoviesRequest, setMovieToShowRequest, editMovieRequest, deleteMovieRequest, addMovieRequest,
+} from '../../services/api';
 
 export const types = {
-  GET_MOVIES: 'GET_MOVIES',
-  GET_MOVIES_SUCCESS: 'GET_MOVIES_SUCCESS',
-  GET_MOVIES_FAILURE: 'GET_MOVIES_FAILURE',
-  SET_MOVIE_TO_SHOW: 'SET_MOVIE_TO_SHOW',
-  GET_MOVIE_DETAILS: 'GET_MOVIE_DETAILS',
-  GET_MOVIE_DETAILS_SUCCESS: 'GET_MOVIE_DETAILS_SUCCESS',
-  GET_MOVIE_DETAILS_FAILURE: 'GET_MOVIE_DETAILS_FAILURE',
-  CLOSE_MOVIE: 'CLOSE_MOVIE',
-  EDIT_MOVIE: 'EDIT_MOVIE',
-  EDIT_MOVIE_SUCCESS: 'EDIT_MOVIE_SUCCESS',
-  EDIT_MOVIE_FAILURE: 'EDIT_MOVIE_FAILURE',
-  DELETE_MOVIE: 'DELETE_MOVIE',
-  DELETE_MOVIE_SUCCESS: 'DELETE_MOVIE_SUCCESS',
-  DELETE_MOVIE_FAILURE: 'DELETE_MOVIE_FAILURE',
-  ADD_MOVIE: 'ADD_MOVIE',
-  ADD_MOVIE_SUCCESS: 'ADD_MOVIE_SUCCESS',
-  ADD_MOVIE_FAILURE: 'ADD_MOVIE_FAILURE',
-  SORT_MOVIES: 'SORT_MOVIES',
-  FILTER_MOVIES: 'FILTER_MOVIES'
-}
+    GET_MOVIES: 'GET_MOVIES',
+    GET_MOVIES_SUCCESS: 'GET_MOVIES_SUCCESS',
+    GET_MOVIES_FAILURE: 'GET_MOVIES_FAILURE',
+    SET_MOVIE_TO_SHOW: 'SET_MOVIE_TO_SHOW',
+    GET_MOVIE_DETAILS: 'GET_MOVIE_DETAILS',
+    GET_MOVIE_DETAILS_SUCCESS: 'GET_MOVIE_DETAILS_SUCCESS',
+    GET_MOVIE_DETAILS_FAILURE: 'GET_MOVIE_DETAILS_FAILURE',
+    CLOSE_MOVIE: 'CLOSE_MOVIE',
+    EDIT_MOVIE: 'EDIT_MOVIE',
+    EDIT_MOVIE_SUCCESS: 'EDIT_MOVIE_SUCCESS',
+    EDIT_MOVIE_FAILURE: 'EDIT_MOVIE_FAILURE',
+    DELETE_MOVIE: 'DELETE_MOVIE',
+    DELETE_MOVIE_SUCCESS: 'DELETE_MOVIE_SUCCESS',
+    DELETE_MOVIE_FAILURE: 'DELETE_MOVIE_FAILURE',
+    ADD_MOVIE: 'ADD_MOVIE',
+    ADD_MOVIE_SUCCESS: 'ADD_MOVIE_SUCCESS',
+    ADD_MOVIE_FAILURE: 'ADD_MOVIE_FAILURE',
+    SORT_MOVIES: 'SORT_MOVIES',
+    FILTER_MOVIES: 'FILTER_MOVIES',
+};
 
 export const getMovies = () => ({ type: types.GET_MOVIES });
 export const getMoviesSuccess = (moviesData) => ({ type: types.GET_MOVIES_SUCCESS, payload: moviesData });
@@ -49,61 +51,61 @@ export const sortMoviesBy = (sortType) => ({ type: types.SORT_MOVIES, payload: s
 
 export const filterMoviesBy = (filterType) => ({ type: types.FILTER_MOVIES, payload: filterType });
 
-//Async handlers
+// Async handlers
 export const startGetMovies = (dispatch) => {
     dispatch(getMovies());
     getMoviesRequest()
-    .then((res) =>{
-      dispatch(getMoviesSuccess(res.data));
-    })
-    .catch((error)=> {
-      dispatch(getMoviesFailure(error));
-    })
-}
+        .then((res) => {
+            dispatch(getMoviesSuccess(res.data));
+        })
+        .catch((error) => {
+            dispatch(getMoviesFailure(error));
+        });
+};
 
 export const startGetMovieToShow = (dispatch, id) => {
     dispatch(getMovieDetails());
     setMovieToShowRequest(id)
-    .then((res) =>{
-      dispatch(getMovieDetailsSuccess(res.data));
-    })
-    .catch((error)=> {
-      dispatch(getMovieDetailsFailure(error));
-    })
-}
+        .then((res) => {
+            dispatch(getMovieDetailsSuccess(res.data));
+        })
+        .catch((error) => {
+            dispatch(getMovieDetailsFailure(error));
+        });
+};
 
 export const startEditMovie = (dispatch, newData) => {
     dispatch(deleteMovie());
     editMovieRequest(newData)
-    .then((res) =>{
-      dispatch(deleteMovieSuccess(res));
-      startGetMovies(dispatch);
-    })
-    .catch((error)=> {
-      dispatch(deleteMovieFailure(error));
-    })
-}
+        .then((res) => {
+            dispatch(deleteMovieSuccess(res));
+            startGetMovies(dispatch);
+        })
+        .catch((error) => {
+            dispatch(deleteMovieFailure(error));
+        });
+};
 
 export const startDeleteMovie = (dispatch, id) => {
     dispatch(deleteMovie());
     deleteMovieRequest(id)
-    .then((res) =>{
-      dispatch(deleteMovieSuccess(res));
-      startGetMovies(dispatch);
-    })
-    .catch((error)=> {
-      dispatch(deleteMovieFailure(error));
-    })
-}
+        .then((res) => {
+            dispatch(deleteMovieSuccess(res));
+            startGetMovies(dispatch);
+        })
+        .catch((error) => {
+            dispatch(deleteMovieFailure(error));
+        });
+};
 
 export const startAddMovie = (dispatch, movie) => {
     dispatch(addMovie());
     addMovieRequest(movie)
-    .then((res) =>{
-      dispatch(addMovieSuccess(res));
-      startGetMovies(dispatch);
-    })
-    .catch((error)=> {
-      dispatch(addMovieFailure(error));
-    })
-}
+        .then((res) => {
+            dispatch(addMovieSuccess(res));
+            startGetMovies(dispatch);
+        })
+        .catch((error) => {
+            dispatch(addMovieFailure(error));
+        });
+};

@@ -15,7 +15,7 @@ jest.mock('../../context/movies/actions', () => ({
 }));
 
 const setState = jest.fn();
-const useStateSpy = jest.spyOn(React, "useState");
+const useStateSpy = jest.spyOn(React, 'useState');
 useStateSpy.mockImplementation((init) => [init, setState]);
 
 describe('AddMovieModal', () => {
@@ -28,12 +28,12 @@ describe('AddMovieModal', () => {
         jest.clearAllMocks();
     });
 
-    describe("AddMovieModal", () => {
-        it("Should match the snapshot", () => {
+    describe('AddMovieModal', () => {
+        it('Should match the snapshot', () => {
             expect(wrapper).toMatchSnapshot();
         });
 
-        it("Should change values in inputs and submit the correct information when the Submit button is clicked", () => {
+        it('Should change values in inputs and submit the correct information when the Submit button is clicked', () => {
             wrapper.find('input#movie-title').simulate('change', { target: { value: 'New Title' } });
             wrapper.find('input#movie-release-date').simulate('change', { target: { value: 'New Release Date' } });
             wrapper.find('input#movie-url').simulate('change', { target: { value: 'New URL' } });
@@ -45,17 +45,17 @@ describe('AddMovieModal', () => {
 
             submitBtn.simulate('click');
 
-            expect(startAddMovie).toHaveBeenCalledWith(expect.any(Function), expect.objectContaining({
-                Plot: "New Overview",
-                Poster: "New URL",
-                Released: "New Release Date",
-                Runtime: "New Runtime",
-                Title: "New Title",
-                Genre: "New Genre"
+            expect(startAddMovie).toHaveBeenCalledWith(expect.any(Function),expect.objectContaining({
+                Plot: 'New Overview',
+                Poster: 'New URL',
+                Released: 'New Release Date',
+                Runtime: 'New Runtime',
+                Title: 'New Title',
+                Genre: 'New Genre',
             }));
         });
 
-        it("Should clear the values in the inputs when the Reset button is clicked", () => {
+        it('Should clear the values in the inputs when the Reset button is clicked', () => {
             wrapper.find('input#movie-title').simulate('change', { target: { value: 'New Title' } });
             wrapper.find('input#movie-release-date').simulate('change', { target: { value: 'New Release Date' } });
             wrapper.find('input#movie-url').simulate('change', { target: { value: 'New URL' } });
@@ -80,8 +80,6 @@ describe('AddMovieModal', () => {
             expect(wrapper.find('input#movie-genre').props().value).toEqual('');
             expect(wrapper.find('input#movie-overview').props().value).toEqual('');
             expect(wrapper.find('input#movie-runtime').props().value).toEqual('');
-        })
-
+        });
     });
-
 });

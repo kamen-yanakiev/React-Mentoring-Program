@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2020: true,
+        jest: true
     },
     extends: [
         'eslint:recommended',
@@ -28,10 +29,6 @@ module.exports = {
         'react/jsx-indent-props': ['error', 4],
         'react/forbid-prop-types': 0,
         'jsx-a11y/label-has-associated-control': 'off',
+        'max-len': ["error", { "code": 150 }],
     },
-    overrides: [
-        {
-            excludedFiles: 'src/**/*.js',
-        },
-    ],
 };
