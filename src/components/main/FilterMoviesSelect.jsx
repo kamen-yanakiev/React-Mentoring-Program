@@ -12,11 +12,31 @@ const FilterMoviesSelect = () => {
 
     return (
         <ul className='main-content-list'>
-            <li><button type='button' onKeyDown={() => changeFilterType(filterTypes.ALL)} onClick={() => changeFilterType(filterTypes.ALL)}>All</button></li>
-            <li><button type='button' onKeyDown={() => changeFilterType(filterTypes.DOCUMENTARY)} onClick={() => changeFilterType(filterTypes.DOCUMENTARY)}>Documentary</button></li>
-            <li><button type='button' onKeyDown={() => changeFilterType(filterTypes.COMEDY)} onClick={() => changeFilterType(filterTypes.COMEDY)}>Comedy</button></li>
-            <li><button type='button' onKeyDown={() => changeFilterType(filterTypes.HORROR)} onClick={() => changeFilterType(filterTypes.HORROR)}>Horror</button></li>
-            <li><button type='button' onKeyDown={() => changeFilterType(filterTypes.CRIME)} onClick={() => changeFilterType(filterTypes.CRIME)}>Crime</button></li>
+            <li>
+                <button className='filter-movie-button' type='button' onKeyDown={() => changeFilterType(filterTypes.ALL)} onClick={() => changeFilterType(filterTypes.ALL)}>
+                    All
+                </button>
+            </li>
+            <li>
+                <button className='filter-movie-button' type='button' onKeyDown={() => changeFilterType(filterTypes.DOCUMENTARY)} onClick={() => changeFilterType(filterTypes.DOCUMENTARY)}>
+                    Documentary
+                </button>
+            </li>
+            <li>
+                <button className='filter-movie-button' type='button' onKeyDown={() => changeFilterType(filterTypes.COMEDY)} onClick={() => changeFilterType(filterTypes.COMEDY)}>
+                    Comedy
+                </button>
+            </li>
+            <li>
+                <button className='filter-movie-button' type='button' onKeyDown={() => changeFilterType(filterTypes.HORROR)} onClick={() => changeFilterType(filterTypes.HORROR)}>
+                    Horror
+                </button>
+            </li>
+            <li>
+                <button className='filter-movie-button' type='button' onKeyDown={() => changeFilterType(filterTypes.CRIME)} onClick={() => changeFilterType(filterTypes.CRIME)}>
+                    Crime
+                </button>
+            </li>
         </ul>
     );
 };

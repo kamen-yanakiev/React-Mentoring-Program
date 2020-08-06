@@ -152,9 +152,13 @@
     li {
       margin-right: .7rem;
       list-style: none;
-      cursor: pointer;
-      color: white;
-      text-transform: uppercase;
+      .filter-movie-button {
+        cursor: pointer;
+        color: white;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+      }
     }
   }
   .main-content-sort {
