@@ -1,3 +1,0 @@
-export default {
-    ALL: 'ALL', DOCUMENTARY: 'DOCUMENTARY', COMEDY: 'COMEDY', HORROR: 'HORROR', CRIME: 'CRIME',
-};
