@@ -5,6 +5,7 @@ import {
 import MainContentHolder from './pages/MainContentHolder';
 import SelectedMovieHeader from './components/header/SelectedMovieHeader';
 import ErrorPage from './pages/ErrorPage';
+import './scss/app.scss';
 
 const App = () => (
     <Router>
