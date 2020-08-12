@@ -1,27 +1,38 @@
 // import {Link, Head} from 'next';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Router from 'next/router';
 import Head from 'next/head';
-import Layout from '../components/Layout';
 import fetch from 'isomorphic-fetch';
+import Layout from '../components/Layout';
 
-const News = ({ news }) => {
-    const [searchQuery, setSearchQuery] = useState('react');
+const searchForNews = async (searchQuery) => {
+    try {
+        const res = await fetch(`https://hn.algolia.com/api/v1/search?query=${searchQuery}`);
+        const result = await res.json();
+        return result.hits;
+    } catch (err) {
+        console.log(`ERROR ${err}`);
+        return [];
+    }
+};
 
-    const handleTextChange = e => {
+const News = ({ newsProp = [], query = 'react'  }) => {
+    const [searchQuery, setSearchQuery] = useState(query);
+
+    const handleTextChange = (e) => {
         setSearchQuery(e.target.value);
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         Router.push(`/news/?searchTerm=${searchQuery}`);
-    }
+    };
 
     const searchForm = () => (
         <div className='add-padding'>
             <p>Search for news:</p>
-            <form onSubmit={ handleSubmit }>
-                <input type='text' value={searchQuery} onChange={ handleTextChange } />
+            <form onSubmit={handleSubmit}>
+                <input type='text' value={searchQuery} onChange={handleTextChange} />
                 <button>Search</button>
             </form>
         </div>
@@ -30,13 +41,13 @@ const News = ({ news }) => {
     return (
         <div>
             <Head>
-            <title>News</title>
+                <title>News</title>
             </Head>
             <Layout mainTitle='News'>
                 <div>
                     {searchForm()}
-                    <hr/>
-                    {news.map((news, index) => (
+                    <hr />
+                    {newsProp.map((news, index) => (
                         <p key={index}>
                             <a href={news.url} target='_blank'>{ news.title }</a>
                         </p>
@@ -44,23 +55,17 @@ const News = ({ news }) => {
                 </div>
             </Layout>
         </div>
-        
-    )
-}
+
+    );
+};
 
 News.getInitialProps = async ({ query }) => {
-    let news;
-    try {
-        const res = await fetch(`https://hn.algolia.com/api/v1/search?query=${query.searchTerm}`);
-        news = await res.json();
-    } catch (err) {
-        console.log(`ERROR ${err}`);
-        news = [];
-    }
+    const newsProp = await searchForNews(query.searchTerm);
 
     return {
-        news: news.hits
-    }
-}
+        newsProp,
+        query: query.searchTerm,
+    };
+};
 
 export default News;

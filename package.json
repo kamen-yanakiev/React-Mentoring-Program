@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "escape-string-regexp": "^4.0.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "express": "^4.17.1",
     "isomorphic-fetch": "^2.2.1",
     "next": "^9.5.1",
@@ -30,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.5"
   }
 }
