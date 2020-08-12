@@ -1,6 +1,7 @@
 // import {Link, Head} from 'next';
 import { useState } from 'react';
 import Router from 'next/router';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import fetch from 'isomorphic-fetch';
 
@@ -27,17 +28,23 @@ const News = ({ news }) => {
     );
 
     return (
-        <Layout mainTitle='News'>
-            <div>
-                {searchForm()}
-                <hr/>
-                {news.map((news, index) => (
-                    <p key={index}>
-                        <a href={news.url} target='_blank'>{ news.title }</a>
-                    </p>
-                ))}
-            </div>
-        </Layout>
+        <div>
+            <Head>
+            <title>News</title>
+            </Head>
+            <Layout mainTitle='News'>
+                <div>
+                    {searchForm()}
+                    <hr/>
+                    {news.map((news, index) => (
+                        <p key={index}>
+                            <a href={news.url} target='_blank'>{ news.title }</a>
+                        </p>
+                    ))}
+                </div>
+            </Layout>
+        </div>
+        
     )
 }
 
