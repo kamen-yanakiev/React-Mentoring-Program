@@ -1,11 +1,19 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './pages/App';
-import './scss/styles.scss'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import App from './App';
+import reducer from './context/movies/reducers';
+import './scss/app.scss';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root'),
 );

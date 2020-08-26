@@ -1,29 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 @import './variables';
 
-html {
+.App {
+  min-height: 100vh;
   font-family: 'PT Sans', sans-serif;
   background: $primary-background;
-}
 
-body {
-  font-family:inherit;
-}
+  body {
+    font-family:inherit;
+  }
+  
+  *,:before,:after {
+    font-family:inherit;
+  }
 
-*,:before,:after {
-  font-family:inherit;
-}
-
-.App {
-  display: flex;
-  flex-flow: row wrap;
-
-  .header {
-    margin-top: 1rem;
+  .header, .movie-header {
+    padding: 2rem 0;
     display: flex;
     flex-flow: row wrap;
     flex: 0 0 100%;
     justify-content: space-between;
+    background: $primary-transparent-background;
 
     .header-text {
       flex: 0 0 50%;
@@ -48,26 +45,90 @@ body {
     }
 
     .find-movie {
+      font-family: 'PT Sans', sans-serif;
       flex: 0 0 100%;
       color: white;
+      font-size: 1.5rem;
     }
 
     .search-and-results {
       margin-top: 1rem;
       flex: 0 0 100%;
       padding: 0 10rem 0 10rem;
+      display: flex;
+      flex-flow: row wrap;
       .search-movie-input {
-        width: 15%;
+        flex: 0 0 60%;
+        height: 3rem;
+        border: 1px solid $primary-transparent-background;
+        border-radius: .3rem;
       }
-      .movie-search-btn, .movie-clear-search-btn {
+      .movie-search-btn {
         margin-left: .5rem;
+        flex: 0 0 20%;
         background: $primary-color-red;
         color: white;
         border: none;
         cursor: pointer;
+        border-radius: .3rem;
       }
     }
   }
+
+  .movie-header {
+    .header-text {
+      flex: 0 0 8%;
+      display: flex;
+    }
+    .close-btn {
+      font-size: 1.5rem;
+      flex: 0 0 5%;
+      color: $primary-color-red;
+      svg {
+        cursor: pointer;
+      } 
+    }
+
+    .movie-header-content {
+      margin-top: 1rem;
+      margin-left: 2rem;
+      width: 90%;
+      display: flex;
+
+      .movie-poster {
+        flex: 0 0 15%;
+        background-color: $primary-transparent-background;
+        height: 23rem;
+        width: 15rem;
+      }
+
+      .movie-details {
+        flex: 0 0 60%;
+        margin-left: 2rem;
+        color: white;
+        .movie-title {
+          font-size: 2rem;
+          .movie-rating {
+            color: $rating-color;
+            font-size: 1.5rem;
+            margin-left: .5rem;
+            border: 2px solid white;
+            padding: 8px 15px 8px 15px;
+            border-radius: 50px;
+          }
+        }
+
+        .movie-year-and-duration {
+          color: $primary-color-red;
+          font-size: 24px;
+          span {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+
   .main-conent {
     flex: 0 0 80%;
     background: $primary-transparent-background;
@@ -77,4 +138,157 @@ body {
     flex: 0 0 20%;
   }
 
+}
+
+.main-content-top {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 2rem 0;
+  .main-content-list {
+    display: flex;
+    margin: 0;
+    li {
+      margin-right: .7rem;
+      list-style: none;
+      cursor: pointer;
+      color: white;
+      text-transform: uppercase;
+    }
+  }
+  .main-content-sort {
+    margin-right: 2rem;
+    text-transform: uppercase;
+    .main-content-sort-label {
+      color: white;
+      margin-right: .5rem;
+    }
+    select {
+      text-transform: uppercase;
+    }
+    option {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.edit-btn, .delete-btn {
+  width: 100%;
+  margin-top: .5rem;
+  text-transform: uppercase;
+}
+
+.btn-primary:focus {
+  background-color: $primary-background;
+  border: 1px solid $primary-color-red;
+  color: $primary-color-red;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  background-color: $primary-background !important;
+  color: $primary-color-red !important;
+}
+
+.add-movie-modal, .edit-movie-modal, .delete-movie-modal {
+  div {
+    .close  {
+      color: white;
+    }
+    color: white;
+    background-color: $popup-background;
+  }
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-body {
+    form {
+      label {
+        width: 100%;
+        text-transform: uppercase;
+        color: $primary-color-red;
+        margin-bottom: 0;
+        margin-top: .7rem;
+      }
+      input {
+        width: 100%;
+        border-radius: .3rem;
+        border: none;
+        background-color: $primary-transparent-background;
+      }
+    }
+  }
+  .modal-footer {
+    border-top: none;
+  }
+}
+
+.main-content-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.movie-item {
+  height: 21rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+  display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(12, 1fr);
+  background: $primary-transparent-background;
+  .movie-item-dropdown {
+    grid-row: 1/ 1;
+    grid-column: 3/ 4;
+    text-align: center;
+    button {
+      background: $primary-transparent-background-dark;
+      border: none;
+      border-radius: 60px;
+      text-align: center;
+      margin-top: .5rem;
+      padding: 15px 22px 15px 22px;
+      font-weight: bold;
+      color: white;
+    }
+    button:hover {
+      background-color: $primary-transparent-background-dark;
+      color: white;
+    }
+    button:not(.disabled):active {
+      background-color: $primary-transparent-background-dark;
+      color: $primary-color-red;
+    }
+    .btn-primary {
+      background-color: $primary-transparent-background-dark;
+      color: white;
+    }
+    button:focus {
+      box-shadow: none;
+    }
+    button::after {
+      display: none;
+    }
+    .dropdown-menu {
+      background-color: $popup-input;
+      button {
+        background: none;
+        height: fit-content;
+        padding: 0;
+        margin: .3rem 0;
+        width: 100%;
+        div {
+          max-height: fit-content;
+        }
+      }
+    }
+  }
+  .movie-item-click {
+    cursor: pointer;
+    grid-row: 1/ 13;
+    grid-column: 1/ 4;
+  }
 }
